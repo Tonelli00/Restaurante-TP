@@ -1,0 +1,16 @@
+
+.Btn
+{
+    border: none;
+    padding:0.8rem;
+    border-radius: 1rem;
+    background-color: rgb(237, 210, 74);
+    cursor: pointer;
+
+}
+.Btn:hover
+{
+    color:var(--hover-color);
+    transition: color 0.4s ease-out;
+}
+

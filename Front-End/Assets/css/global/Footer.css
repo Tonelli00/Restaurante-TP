@@ -1,0 +1,15 @@
+
+.footer
+{
+    background-color:rgb(48, 45, 45);
+    color: var(--color-hyf);
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    gap: 28rem;
+    padding-left: 3rem;
+
+    font-family: var(--fuente-general);
+    font-style: italic;
+
+}

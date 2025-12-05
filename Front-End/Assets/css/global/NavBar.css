@@ -1,47 +1,29 @@
-:root
-{
-    --color-principal:#322a2ad7;
-    --color-hyf:#f1220bec;
-    --color-text:#fff;
-    --fuente-header:Verdana, Geneva, Tahoma, sans-serif;
-
-}
 
 
 .header
 {
+
     display: flex;
     position:sticky;
     top: 0;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    z-index: 1;
+    z-index: 1000;
     background-color: #322a2af5;   
     color: var(--color-hyf);
-    padding: 1rem;
-    border-bottom:solid var(--color-hyf) 2px ;
-    font-family: var(--fuente-header);
-    font-style: italic;
+    padding: 0.5rem;
+    border-bottom:solid var(--color-hyf) 1px ;
+    font-weight: bold;
 }
-
-.header .orderBtn
-{
-    border: none;
-    border-radius: 4rem;
-    padding: 0.4rem;
-    background-color: rgba(119, 93, 64, 0.989);
-}
-
 
 .navegation
 {
     
     justify-content: flex-end; 
-    font-size: 1.5rem;
-    padding: 0;
+    font-size: 1.2rem;
+    padding: 1.2rem;
     margin: 0;
-    
+
 }
 .navegation::before
 {
@@ -65,10 +47,5 @@
     font-weight: lighter;
     text-decoration: none;
     transition: color 0.4s ease-out;
-    
-}
-.navegation ul li a:hover
-{ 
-    color:var(--color-hyf);
     
 }
