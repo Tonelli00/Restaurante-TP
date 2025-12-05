@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Restaurant API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0D01B0ED-AB61-4F32-BE51-033F78FACCD9}|Restaurant API.csproj|c:\\users\\tonel\\onedrive\\desktop\\unaj\\2025\\2do cuatrimestre\\proyecto software\\tp_individual\\restaurant api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D01B0ED-AB61-4F32-BE51-033F78FACCD9}|Restaurant API.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FAF7E43-2F58-4A76-AE60-23133886943F}|..\\Aplication\\Application.csproj|c:\\users\\tonel\\onedrive\\desktop\\unaj\\2025\\2do cuatrimestre\\proyecto software\\tp_individual\\aplication\\usecase\\dish\\dishservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FAF7E43-2F58-4A76-AE60-23133886943F}|..\\Aplication\\Application.csproj|c:\\users\\tonel\\onedrive\\desktop\\unaj\\2025\\2do cuatrimestre\\proyecto software\\tp_individual\\aplication\\models\\ordercreatereponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FAF7E43-2F58-4A76-AE60-23133886943F}|..\\Aplication\\Application.csproj|c:\\users\\tonel\\onedrive\\desktop\\unaj\\2025\\2do cuatrimestre\\proyecto software\\tp_individual\\aplication\\interfaces\\idishservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F503C44-5BC1-4182-B1BE-CDA3D6403318}|..\\Infraestructure\\Infraestructure.csproj|c:\\users\\tonel\\onedrive\\desktop\\unaj\\2025\\2do cuatrimestre\\proyecto software\\tp_individual\\infraestructure\\querys\\dishquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4808B864-FEB4-4FC6-8E9D-E0AAF119B20F}|..\\Domain\\Domain.csproj|c:\\users\\tonel\\onedrive\\desktop\\unaj\\2025\\2do cuatrimestre\\proyecto software\\tp_individual\\domain\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Restaurant API\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Restaurant API\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T21:18:26.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DishQuery.cs",
+              "DocumentMoniker": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Infraestructure\\Querys\\DishQuery.cs",
+              "RelativeDocumentMoniker": "..\\Infraestructure\\Querys\\DishQuery.cs",
+              "ToolTip": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Infraestructure\\Querys\\DishQuery.cs",
+              "RelativeToolTip": "..\\Infraestructure\\Querys\\DishQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T13:31:49.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DishServices.cs",
+              "DocumentMoniker": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Aplication\\UseCase\\Dish\\DishServices.cs",
+              "RelativeDocumentMoniker": "..\\Aplication\\UseCase\\Dish\\DishServices.cs",
+              "ToolTip": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Aplication\\UseCase\\Dish\\DishServices.cs",
+              "RelativeToolTip": "..\\Aplication\\UseCase\\Dish\\DishServices.cs",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAAwJMAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T13:28:47.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderCreateReponse.cs",
+              "DocumentMoniker": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Aplication\\Models\\OrderCreateReponse.cs",
+              "RelativeDocumentMoniker": "..\\Aplication\\Models\\OrderCreateReponse.cs",
+              "ToolTip": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Aplication\\Models\\OrderCreateReponse.cs",
+              "RelativeToolTip": "..\\Aplication\\Models\\OrderCreateReponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T20:21:11.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IDishServices.cs",
+              "DocumentMoniker": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Aplication\\Interfaces\\IDishServices.cs",
+              "RelativeDocumentMoniker": "..\\Aplication\\Interfaces\\IDishServices.cs",
+              "ToolTip": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Aplication\\Interfaces\\IDishServices.cs",
+              "RelativeToolTip": "..\\Aplication\\Interfaces\\IDishServices.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T13:33:48.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Domain\\Entities\\OrderItem.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Entities\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\tonel\\OneDrive\\Desktop\\UNAJ\\2025\\2DO CUATRIMESTRE\\PROYECTO SOFTWARE\\TP_Individual\\Domain\\Entities\\OrderItem.cs",
+              "RelativeToolTip": "..\\Domain\\Entities\\OrderItem.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwBAAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T23:06:30.018Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

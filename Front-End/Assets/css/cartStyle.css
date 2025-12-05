@@ -1,0 +1,58 @@
+.cart-items .empty-cart
+{   
+    color: rgb(0, 0, 0);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10rem;
+    color: rgb(0, 0, 0);
+}
+#cart-content .orderNotes
+{
+    display: none;
+}
+
+#cart-content .orderNotes.show
+{
+    display: block;
+    margin-top: 2rem;
+    margin-bottom:2rem;
+    padding: 20px;
+    border-radius: 2rem;
+    width: 70%;
+    
+
+}
+
+
+.Dish-Card
+{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    border: 2px solid black;
+    margin-bottom: 2rem;
+    
+
+}
+
+
+.Dish-Card .conteiner
+{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+   
+}
+.Dish-Card .Dish-Image
+{
+    height:145px;
+    width: 50%;
+    object-fit: 80%;
+    border: 2px solid black;
+}

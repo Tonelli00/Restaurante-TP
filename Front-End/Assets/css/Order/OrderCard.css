@@ -1,0 +1,53 @@
+#order-items
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+    align-items: center;
+    overflow-y: auto;
+    height: 60vh;
+    
+}
+#order-items .OrderCard
+{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(255, 244, 244);
+    margin-left: 8px;
+    margin-top: 1rem;
+    border:solid black;
+    border-radius: 1rem;
+    width: 24rem;
+    height: 12rem;
+}
+#order-items .OrderCard:hover
+{
+    transform: translateY(-10px);
+    transition: all 0.5s ;
+    box-shadow: 0 5px 15px rgb(0, 0, 0);
+}
+#order-items .OrderCard .container
+{
+    display: flex;
+    flex-direction: column;
+    
+    gap:0.4rem;
+}
+
+
+#order-items .OrderCard .seeOrderBTN
+{
+    justify-self:center;
+    align-self: center;
+    padding: 0.2rem;
+    border-radius: 1rem;
+    background-color: rgb(174, 251, 177);
+
+}
+#order-items .OrderCard .seeOrderBTN:hover
+{
+    background-color: greenyellow;
+    transition: ease-out 0.2s;
+    cursor:pointer;
+
+}

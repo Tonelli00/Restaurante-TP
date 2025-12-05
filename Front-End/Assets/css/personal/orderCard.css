@@ -1,0 +1,115 @@
+#activeOrders 
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    height: 70vh;
+    width: auto;
+    
+}
+#activeOrders .OrderCard
+{
+    background-color: rgba(0, 0, 0, 0.692);
+    margin-left: 8px;
+    margin-top: 2rem;
+    border:solid black;
+    border-radius: 1rem;
+    width: 24rem;
+    height: 11rem;
+}
+
+#activeOrders .OrderCard:hover
+{
+    transform: translateY(-10px);
+    transition: all 0.5s ;
+    box-shadow: 0 5px 15px rgb(255, 255, 255);
+}
+
+
+
+#activeOrders .OrderCard .order_container
+{
+    display: flex;
+    flex-direction: column;
+    gap:0.4rem;
+}
+
+
+#activeOrders .OrderCard .seeOrderBTN
+{
+    justify-self:center;
+    align-self: center;
+    padding: 0.2rem;
+    border-radius: 1rem;
+    background-color: rgb(174, 251, 177);
+
+}
+#activeOrders .OrderCard .seeOrderBTN:hover
+{
+    background-color: greenyellow;
+    transition: ease-out 0.2s;
+    cursor:pointer;
+
+}
+
+#InactiveOrders 
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    height: 70vh;
+    width: auto;
+    
+}
+#InactiveOrders .OrderCard
+{
+    background-color: rgba(0, 0, 0, 0.692);
+    margin-left: 8px;
+    margin-top: 2rem;
+    border:solid black;
+    border-radius: 1rem;
+    width: 24rem;
+    height: 11rem;
+}
+
+#InactiveOrders .OrderCard:hover
+{
+    transform: translateY(-10px);
+    transition: all 0.5s ;
+    box-shadow: 0 5px 15px rgb(255, 255, 255);
+}
+
+
+
+#InactiveOrders .OrderCard .order_container
+{
+    display: flex;
+    flex-direction: column;
+    gap:0.4rem;
+}
+
+
+#InactiveOrders .OrderCard .seeOrderBTN
+{
+    justify-self:center;
+    align-self: center;
+    padding: 0.2rem;
+    border-radius: 1rem;
+    background-color: rgb(174, 251, 177);
+
+}
+#InactiveOrders .OrderCard .seeOrderBTN:hover
+{
+    background-color: greenyellow;
+    transition: ease-out 0.2s;
+    cursor:pointer;
+
+}
+
+
