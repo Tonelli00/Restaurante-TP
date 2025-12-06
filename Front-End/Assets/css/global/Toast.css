@@ -1,0 +1,38 @@
+#mensaje
+{
+    position: fixed;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-60%);
+    border-radius: 2rem;
+    padding: 0.5rem;
+    background-color: rgba(115, 255, 0, 0.897);
+    color: rgb(0, 0, 0);
+    transition: all 0.5s ease;
+    z-index: 1000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#mensaje.mostrar
+{
+    bottom: 30px;
+    opacity: 1;
+
+}
+#mensaje_Error
+{
+    position: fixed;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-60%);
+    border-radius: 2rem;
+    padding: 0.5rem;
+    background-color: rgba(115, 255, 0, 0.897);
+    color: rgb(0, 0, 0);
+    transition: all 0.5s ease;
+    z-index: 1000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#mensaje_Error.mostrar
+{
+    bottom: 30px;
+}

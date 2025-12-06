@@ -1,0 +1,47 @@
+
+body
+{
+   background-color: #ffffff;
+   
+}
+body.displaytrue
+{
+    overflow: hidden;
+    
+}
+
+.menu-introduction
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-style);  
+    gap: 0.2rem;
+}
+.menu-introduction h2
+{
+    color: rgba(0, 0, 0, 0.749);
+    font-size: 3rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+.menu-introduction .resaltado
+{
+    color: var(--color-hyf);
+}
+.menu-introduction p
+{
+    color: var(--sub-texts);
+    font-size: 1.5rem;
+
+}
+
+
+
+
+
+
+
+
+

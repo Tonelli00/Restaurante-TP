@@ -115,45 +115,23 @@ section
     justify-content: center;
     
     font-size: 3rem;
-    color:red;
+    color:var(--color-tittles);
     
 }
 .menu-introduction .menu-header p
 {
  
-    font-size: 1.4rem;
-    color:#322a2acb;
+    font-size: 1rem;
+    color:var(--color-text);
 }
 
-.menu-btn
+.menubtn
 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
 }
-.menu-btn ul
-{
-    list-style-type: none;
-}
-.menu-btn ul li a 
-{
-    text-decoration: none;
-    border: none;
-    border-radius: 2rem;
-    color: white;
-    background-color: rgba(119, 93, 64, 0.918);
-    font-size: 1.3rem;
-    font-family: 'Times New Roman', Times, serif;
-    padding: 1.5rem ;
-}
-.menu-btn ul li a:hover 
-{
-    transition: 0.4s ease-out;
-    color:red;
-}
-
-
 
 #us-description
 {
@@ -166,7 +144,7 @@ section
 }
 #us-description h2
 {
-    color: red;
+    color: var(--color-tittles);
     font-size: 3rem;
    
     
@@ -184,8 +162,6 @@ section
     width:100%;
     align-items: center;
     gap: 1rem;
- 
-    font-size: 1.4rem;
 }
 .caracteristicas .contenedor
 {
@@ -194,9 +170,8 @@ section
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
     
 }
 
@@ -232,7 +207,7 @@ section
 .doOrder h2
 {
     font-size: 2.3rem;
-    color: red;
+    color: var(--color-tittles);
 }
 .doOrder .orderBtn
 {

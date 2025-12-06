@@ -2,7 +2,7 @@
 .Btn
 {
     border: none;
-    padding:0.8rem;
+    padding:1rem;
     border-radius: 1rem;
     background-color: rgb(237, 210, 74);
     cursor: pointer;
@@ -10,7 +10,22 @@
 }
 .Btn:hover
 {
-    color:var(--hover-color);
+    color:var(--ahover-color);
     transition: color 0.4s ease-out;
 }
 
+.Menu-Btn
+{
+    
+    padding:1rem;
+    border-radius: 1rem;
+    background-color:var(--color-hyf);
+    cursor: pointer;
+
+}
+.Menu-Btn:hover
+{
+    transition: 0.2s ease;
+    background-color:var(--color-hyf-BtnHover)
+
+}

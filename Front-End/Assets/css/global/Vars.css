@@ -2,8 +2,12 @@
 {
     --color-principal:#322a2ad7;
     --color-hyf:#ffe055ec;
+    --color-hyf-BtnHover:#ffd000e4;
     --color-text:#ffffff;
-    --hover-color:black;
+    --color-tittles:#aa8801ae;
+    --ahover-color:black;
+    --font-style:Verdana, Geneva, Tahoma, sans-serif;
+    --sub-texts : grey;
    
 
 }

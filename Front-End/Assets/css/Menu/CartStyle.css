@@ -1,3 +1,21 @@
+.logo-car
+{
+    display: flex;
+    gap:1rem;
+}
+#cart-icon {
+    height: 3rem;
+    display: block;
+}
+.car-counter
+{
+    position: absolute;
+    top: 0.5rem;
+    margin-left: 3.5rem;
+    font-size: 1.5rem;
+
+    font-style: var(--font-style);
+}
 .cart-items .empty-cart
 {   
     color: rgb(0, 0, 0);
