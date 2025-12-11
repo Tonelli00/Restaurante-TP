@@ -1,143 +1,42 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B&B</title>
-    <link rel="stylesheet" href="/Assets/css/home.css">
-    <link rel="stylesheet" href="Assets/css/global/NavBar.css">
-    <link rel="stylesheet" href="/Assets/css/dish/dishCard.css">
-    <link rel="stylesheet" href="/Assets/css/global/Footer.css">
-    <link rel="stylesheet" href="/Assets/css/global/Vars.css">
-    <link rel="stylesheet" href="/Assets/css/global/Buttons.css ">
-    <script src="/views/dish/dishCardHome.js"></script>
+    <title>Byte & Bite</title>
+
+    <link rel="stylesheet" href="Styles/Global/NavBar.css">
+    <link rel="stylesheet" href="Styles/Global/Global.css">
+    <link rel="stylesheet" href="Styles/Global/Vars.css">
+    <link rel="stylesheet" href="Styles/Home/homeStyle.css">
 </head>
-<body class ="body">
-    <header class="header">
-    <h1>Byte & Bite</h1>
-   
-    <nav class="navegation">
+<body>
+    <nav class="Navbar">
+        <div class="tittle">B&B</div>
+        <div class="links">
         <ul>
-        <li><a href="home.html">Inicio</a></li>
-        <li><a href="#us-description">Sobre Nosotros</a></li>
-        <li><a href="menu.html" >Menú</a></li>
-        <li><a href="menu.html" class="Btn">Realizar Orden</a></li>
+            <li><a class="inicio">INICIO</a></li>
+           <li><a href="Menu.html">MENÚ</a></li>
+            <li><a href="Menu.html">CARRITO</a></li>
         </ul>
-    </nav>    
-    </header>
-    
-    <main>
-    <section class ="introduction">
-        <div class="Info">
-            <h2>Byte & Bite</h2>
-            <p class="desc">Experiencia gastronómica altamente recomendable </p>
-            <p class="desc2">Descubrí nuestros fabulosos platos.</p>    
+        </div>
+    </nav>
+    <section class="introduction">
+        <div class="textContainer">
+            <p style="color: var(--text-highlighted);">
+                Bienvenidos a</p> 
+                <h1 style="color: var(--title-color);">B&B</h1> 
+                <p style="color: var(--text-color);">Una experiencia culinaria excepcional donde cada plato cuenta una historia de pasión y tradición</p> 
+        </div>
 
-     </div>
-        
-        <img src="Assets/images/home/plato.jpg" alt="Imagen de un plato">
-        
-    </section>
-    <section class ="menu-introduction">
-        <div class="menu-header">
-        <h2>Los más elegidos</h2>
-        <p>Estos son algunos de nuestros platos más destacados</p>
+        <img src="/Components/Images/homeFondo.jpg" alt="Plato de comida">
         
 
-        </div>
-        
-        <div class="cartas">
-           
-            <div id="carta1" class="card">
-                <img class="imagen" src="" alt="Plato">
-                <div class="contenedor">
-                <span class="nombre"></span>
-                <span class="precio"></span> 
-                
-                </div>
-                
-            </div>
-                
-                
-            
-            <div id="carta2" class="card">
-                <img class="imagen" src="" alt="Plato">
-                <div class="contenedor">
-                <span class="nombre"></span>
-                <span class="precio"></span>     
-                </div>
-                 
-                </div>
-            
-            <div id="carta3" class="card">
-                
-                
-                <img class="imagen" src="" alt="Plato">
-                <div class="contenedor">
-                <span class="nombre"></span>
-                <span class="precio"></span> 
-                   
-                </div>
-                
-            </div>
-          
-            <div id="carta4" class="card" >
-            
-                <img class="imagen" src="" alt="Plato">
-                <div class="contenedor">
-                <span class="nombre"></span>
-                <span class="precio"></span> 
-                
-                </div>
-                
-            </div>
-         
-        </div>
-        <div class="menubtn">
-            <button class="Menu-Btn" onclick="location.href='Menu.Html'">Ver nuestro menú</button>
-        </div>
+
     </section>
 
-    <section id ="us-description">
-        <h2>Un poco sobre nosotros...</h2>
-        <p>
-            Byte & Bite nació el 20 de diciembre de 2004.  
-            Iniciamos, en ese entonces, con nuestra primera sucursal en Bernal. 
-            Desde aquel momento, nunca dejamos de crecer. Hoy en día contamos con más de 
-            10 sucursales distribuidas a lo largo y ancho de Buenos Aires.
-        </p>
-        <div class="caracteristicas">
-            <div class="contenedor">
-                <img src="Assets/images/home/logoChef.webp" class="Logochef" alt="Logo">
-                <p><strong>Personal de calidad</strong></p>
-            
-            </div>
-            <div class="contenedor">
-                <img src="Assets/images/home/LogoLuciana.jpg" class="LogoIng" alt="Logo">
-                <p><strong>Elementos frescos</strong></p>
-            </div>
-            
-            <div class="contenedor">
-                <img src="Assets/images/home/medalla.jpg" class="medallalogo" alt="logo">
-                <p><strong>Distinciones</strong></p>
-            </div>
-            
-        </div>
-       
-    </section>
-    <section class ="doOrder">
-        <h2>Estas a un solo paso de la felicidad, realizá una orden </h2>
-        <button class="Menu-Btn" onclick="location.href='Menu.html'">Ir a nuestro Menú</button>
-    </section>    
-    </main>
-   
     
-    <footer class ="footer">
-        <h2>Contacto</h2>
-        <h2>Horarios</h2>
-        <h2>Redes sociales</h2>
-    </footer>
-   
+    <footer></footer>
     
-
 </body>
 </html>
