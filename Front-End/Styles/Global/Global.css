@@ -5,3 +5,17 @@
     text-decoration: none;
     list-style-type: none;
 }
+.btn
+{
+    padding: 1rem;
+    width: 10vw;
+    background-color: var(--principal-color);
+    color: var(--secondText-color);
+    border: none;
+    border-radius: 0.4rem;
+    margin: 1rem auto;
+}
+.btn:hover
+{
+    cursor: pointer;
+}

@@ -1,8 +1,12 @@
+
 .introduction
 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    transform: translateY(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 .introduction .textContainer
 {
@@ -14,6 +18,8 @@
     width: 100%;
     flex-direction: column;
     background-color:#3a312a99;
+
+   
 }
 .introduction .textContainer h1 
 {
@@ -22,13 +28,38 @@
 }
 .introduction .textContainer p 
 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: var(--text-font);
+    
 }
 .introduction img
 {
     object-fit: cover;
     height:42vw;
     width: 100%;
-    
+}
+.btn
+{
+    margin-top: 4rem;
+}
+
+.somedishes .info
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-family: var(--text-font);
+}
+
+.somedishes .info p
+{
+ color:var( --thirdText-color);
+ font-size: 1.2rem;
+}
+.somedishes .info h1
+{
+ font-size: 3rem;
+ font-family: 'Times New Roman', Times, serif;
 }

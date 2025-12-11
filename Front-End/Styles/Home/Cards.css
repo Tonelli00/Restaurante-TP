@@ -1,0 +1,67 @@
+.FeaturedDishes 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.FeaturedDishes .card 
+{
+
+    box-shadow: var(--shadow-card);
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 30rem;
+    min-height: 26rem;
+    margin: 1rem;     
+    background: white;  
+      
+}
+.FeaturedDishes .card:hover 
+{
+    transform: translateY(-6px);
+    box-shadow: var(--card-hover);
+    transition: 0.35s ease;
+}
+.FeaturedDishes .card:hover img
+{
+    transform: scale(1.05);   
+    transition: 0.35s ease;
+}
+
+.FeaturedDishes .card img
+{
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;   
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius:0.4rem ;
+}
+.FeaturedDishes .card .infodiv
+{   
+    
+    padding: 1rem;
+    color:var(--thirdText-color);
+    
+}
+
+
+
+.FeaturedDishes .card .PriceAndName
+{
+    display: flex;
+    margin-bottom: 1rem;
+    color:var(--principal-color);
+    font-size: 0.7rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.FeaturedDishes .card .btn
+{
+  display: block;
+  align-items: center;
+  margin: 0 auto ;
+  width: 80%;;
+}
+ 
