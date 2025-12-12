@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="Styles/Global/Global.css">
     <link rel="stylesheet" href="Styles/Global/Vars.css">
     <link rel="stylesheet" href="Styles/Home/homeStyle.css">
-    <link rel="stylesheet" href="Styles/Home/Cards.css">
+    <link rel="stylesheet" href="/Styles/Dish/Cards.css">
+    <link rel="stylesheet" href="Styles/Global/Footer.css">
     <script type="module" src="/Views/Dishes/HomeCards.js"></script>
 </head>
 <body>
@@ -30,7 +31,7 @@
                 <h1 style="color: var(--title-color);">B&B</h1> 
                 <p style="color: var(--text-color);">Una experiencia culinaria excepcional donde cada plato cuenta una historia de pasión y tradición</p> 
         
-                <button class="btn">VER MENÚ →</button>
+                <button class="btn" onclick=" location='Menu.html'">VER MENÚ →</button>
         </div>
 
         <img src="/Components/Images/homeFondo.jpg" alt="Plato de comida">
@@ -44,13 +45,25 @@
             <h1>Platos Destacados</h1>
             <p>Una selección de nuestras creaciones más populares, elaboradas con los mejores ingredientes</p>
         </div>
-    <div class="FeaturedDishes"></div>
+    <div class="Dishescards"></div>
 
     </section>
 
 
     
-    <footer></footer>
+    <footer class="footer">
+
+        <div class="Contact">
+            <h1>Contacto</h1>
+        </div>
+        <div class="Schedules">
+            <h1>Horarios</h1>
+        </div>
+        <div class="Location">
+            <h1>Ubicación</h1>
+        </div>
+
+    </footer>
     
 </body>
 </html>

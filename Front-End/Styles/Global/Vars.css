@@ -1,10 +1,13 @@
 :root
 {
     --principal-color:#8F2436;
+    --footer-color:#2E241F;
     --home-color:#ffffff;
+    --menu-introductionColor:#F3ECE2;
     --text-color:#b4b4b4;
     --secondText-color:#ffffff;
     --thirdText-color:#7d7d7d;
+    --fourthText-color:#000000;
     --title-color:#F5F3F2;
     --links-color:#8A7C75;
     --hover-color:#000000;

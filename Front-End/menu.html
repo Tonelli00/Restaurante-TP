@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú B&B</title>
+    
+    <link rel="stylesheet" href="Styles/Global/NavBar.css">
+    <link rel="stylesheet" href="Styles/Global/Global.css">
+    <link rel="stylesheet" href="Styles/Global/Footer.css">
+    <link rel="stylesheet" href="Styles/Global/Vars.css">
+    <link rel="stylesheet" href="/Styles/Dish/Cards.css">
+    <link rel="stylesheet" href="Styles/Menu/CategoriesBar.css">
+    <script type="module" src="/Views/Categories/CategoriesBar.js"></script>
+    <link rel="stylesheet" href="Styles/Menu/menuStyle.css">
+</head>
+<body>
+
+   <nav class="Navbar">
+        <div class="tittle">B&B</div>
+        <div class="links">
+        <ul>
+           <li><a href="Home.html" class="inicio">INICIO</a></li>
+           <li><a href="Menu.html">MENÚ</a></li>
+        
+        </ul>
+        </div>
+    </nav>
+    
+    <section class="MenuIntroduction">
+        <div class="TextContainer">
+            <p style="color: var( --text-highlighted);">EXPLORA</p>
+            <h1>Nuestro Menú</h1>
+            <p>Descubre nuestra selección de platos preparados con ingredientes frescos y técnicas culinarias excepcionales</p>
+        </div>
+    </section>
+
+    <section class="CategorySection">
+        <div class="Search">
+            <input type="text" id="searchInput" placeholder="Buscar platos...">
+        </div>
+        <div class="categorybar"></div>
+    </section>
+    
+    <section class="DishSection">
+        <div class="Dishescards"></div>
+    </section>
+   
+        
+    <footer class="footer">
+
+        <div class="Contact">
+            <h1>Contacto</h1>
+        </div>
+        <div class="Schedules">
+            <h1>Horarios</h1>
+        </div>
+        <div class="Location">
+            <h1>Ubicación</h1>
+        </div>
+
+    </footer>
+    
+    
+</body>
+</html>

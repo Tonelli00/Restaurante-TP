@@ -4,13 +4,11 @@
     position:sticky;    
     top: 0;
     flex-direction: row;
-    height: 100%;
     width: 100%;
     padding: 1.3rem;
     background-color: var(--home-color);
-    gap: 25rem;
+    gap: 30rem;
     z-index: 1;
-
 }
 .tittle
 {

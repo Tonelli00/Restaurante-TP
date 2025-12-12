@@ -1,15 +1,9 @@
-import { getAllDishes } from "./GetDishes.js";
+export function menuCards(dishes)
+{
+    const cardsDiv = document.querySelector('.Dishescards');
+    cardsDiv.innerHTML='';  
 
-async function homecard() {
-    const dishesSection = document.querySelector('.Dishescards');
-   
-
-    const dishes = await getAllDishes();
-    const selectedDishes = dishes.slice(3,6);
-
-    console.log(selectedDishes);
-
-    selectedDishes.forEach(dish => {
+    dishes.forEach(dish => {
         
 
     const card = document.createElement('div');
@@ -34,7 +28,7 @@ async function homecard() {
     
     const dishdescription = document.createElement('p');
     dishdescription.textContent=dish.description;
-    
+        
     const categoryNameDiv = document.createElement('div');
     categoryNameDiv.classList='CategoryNameDiv';
     const categoryName = document.createElement('p');
@@ -44,11 +38,11 @@ async function homecard() {
 
     const btn = document.createElement("button");
     btn.classList.add('btn');
-    btn.textContent="VER MENÚ →";
+    btn.textContent="+ AGREGAR";
     btn.addEventListener('click',(event)=>
         {
             event.preventDefault();
-            location.href='Menu.html';    
+             
         })
     
 
@@ -67,24 +61,9 @@ async function homecard() {
     card.appendChild(infodiv);
     card.appendChild(btn);
 
-    dishesSection.appendChild(card);
+    cardsDiv.appendChild(card);
 
 
 });
 
-}        
-
-
-
-homecard();
-
-
-
-
-
-
-
-
-
-   
-
+}

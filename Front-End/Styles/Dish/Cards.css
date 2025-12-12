@@ -1,0 +1,76 @@
+.Dishescards 
+{
+    display: grid;
+    grid-template-columns:repeat(auto-fill, minmax(30rem, 1fr)); /*Acá hago que sean 3 columnas. en caso de que sean menos elementos, que se ajuste */
+    
+}
+
+.Dishescards .card 
+{
+
+    box-shadow: var(--shadow-card);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    width: 30rem;
+    min-height: 26rem;
+    margin: 0.8rem;     
+    background: white;  
+      
+}
+.Dishescards .card:hover 
+{
+    transform: translateY(-6px);
+    box-shadow: var(--card-hover);
+    transition: 0.35s ease;
+}
+.Dishescards .card:hover img
+{
+    transform: scale(1.05);   
+    transition: 0.35s ease;
+}
+
+.Dishescards .card img
+{
+    height: 14rem;
+    width: 100%;
+    object-fit: cover;   
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius:0.4rem ;
+}
+.Dishescards .card .infodiv
+{   
+    padding: 1rem;
+    color:var(--thirdText-color);
+}
+
+
+
+.Dishescards .card .PriceAndName
+{
+    display: flex;
+    margin-bottom: 1rem;
+    color:var(--principal-color);
+    font-size: 0.7rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.Dishescards .card .btn
+{
+  display: block;
+  align-items: center;
+  margin: 0 auto ;
+  width: 80%;
+}
+
+.Dishescards .card .CategoryNameDiv
+{
+    position: absolute;
+    padding: 0.2rem;
+    margin: 0.4rem;
+    z-index: 1;
+    border-radius: 9999px;
+    background-color: var(--secondText-color);
+    color:var( --fourthText-color);
+    font-family: var(--text-font);
+    font-size: 0.8rem;
+}
