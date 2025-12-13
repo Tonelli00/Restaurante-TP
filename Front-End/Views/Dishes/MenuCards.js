@@ -1,3 +1,6 @@
+import { toast } from "../Menu/Toast.js";
+import {AddElement} from "../Cart/CartBehaviour.js";
+
 export function menuCards(dishes)
 {
     const cardsDiv = document.querySelector('.Dishescards');
@@ -42,7 +45,8 @@ export function menuCards(dishes)
     btn.addEventListener('click',(event)=>
         {
             event.preventDefault();
-             
+            toast(dish.name); 
+            AddElement(dish);
         })
     
 

@@ -1,0 +1,32 @@
+.Navbar
+{
+    gap: 35rem;
+}
+
+.CartIntroduction
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--menu-introductionColor);
+}
+.CartIntroduction .TextContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem;
+    font-family: var(--text-font);
+}
+.CartIntroduction .TextContainer h1
+{
+    font-family: var( --tittle-font);
+    font-size: 4rem;
+}
+.CartIntroduction .TextContainer p
+{
+  color: var(--thirdText-color);
+  font-size: 1rem;
+}

@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="Styles/Global/Vars.css">
     <link rel="stylesheet" href="/Styles/Dish/Cards.css">
     <link rel="stylesheet" href="Styles/Menu/CategoriesBar.css">
+    <link rel="stylesheet" href="Styles/Menu/Toast.css">
+    <link rel="stylesheet" href="Styles/Cart/Cart.css">
     <script type="module" src="/Views/Categories/CategoriesBar.js"></script>
+    <script type="module" src="/Views/Menu/Toast.js"></script>
     <link rel="stylesheet" href="Styles/Menu/menuStyle.css">
 </head>
 <body>
@@ -21,8 +24,12 @@
         <ul>
            <li><a href="Home.html" class="inicio">INICIO</a></li>
            <li><a href="Menu.html">MENÚ</a></li>
-        
+           
         </ul>
+        </div>
+        <div class="cart">
+            <span class="cart-counter"></span>
+            <a href="Cart.html"><img src="/Components/Images/Carrito.png" alt="cart image"></a>
         </div>
     </nav>
     
@@ -44,6 +51,10 @@
     <section class="DishSection">
         <div class="Dishescards"></div>
     </section>
+
+    <div id="Toastcontainer">
+
+    </div>
    
         
     <footer class="footer">

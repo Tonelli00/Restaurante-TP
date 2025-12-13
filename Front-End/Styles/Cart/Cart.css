@@ -1,0 +1,35 @@
+.Navbar
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:33rem;
+    
+}
+.Navbar .cart
+{
+    margin-right: 20rem;
+    border-radius: 2rem;
+    padding: 0.35rem;
+} 
+.Navbar .cart:hover
+{
+    background-color: var(--cartHover-color);
+    transition: 0.25s ease;
+}
+.Navbar img 
+{
+    height: 2rem;
+    width: 2rem;
+}
+.cart-counter
+{
+    display: flex;
+    position:absolute;
+    top: 20px;
+    color: black;
+    justify-content: end;
+    margin-left: 2rem;
+    font-family: var(--text-font);
+   
+}

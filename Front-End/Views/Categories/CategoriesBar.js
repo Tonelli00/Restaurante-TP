@@ -5,9 +5,9 @@ import { menuCards } from "../Dishes/MenuCards.js";
 async function categoryBar() {
     const data = await getAllCategories();
     const categories = data.data;
-
-    const inputSearch = document.getElementById('searchInput');
     let activecategory=null;
+    const inputSearch = document.getElementById('searchInput');
+
     
     const categoriesdiv = document.querySelector(".categorybar");
     const AllCategoriesbutton = document.createElement('button');
@@ -19,7 +19,7 @@ async function categoryBar() {
     
     AllCategoriesbutton.addEventListener('click',async (event)=> 
     {
-        event.preventDefault();
+        clearActiveButtons();
         AllCategoriesbutton.classList.add('active');
         activecategory=null;
         menuCards(await getAllDishes());  
@@ -32,10 +32,11 @@ async function categoryBar() {
 
         const categorybutton = document.createElement('button');
         categorybutton.textContent=category.name.toUpperCase();
-
+        
         categorybutton.addEventListener('click',async (event)=> 
             {
-                event.preventDefault();
+                clearActiveButtons();
+                categorybutton.classList.add('active');
                 AllCategoriesbutton.classList.remove('active');
                 activecategory=category.id;
                 menuCards(await getDishesByCategory(category.id));
@@ -54,10 +55,16 @@ async function categoryBar() {
     const inputSearch = document.getElementById('searchInput');
     const text = inputSearch.value;
     menuCards(await getDishesByNameandCat(text,activecategory));
+    
 }
 
 }
 
 categoryBar();
+function clearActiveButtons() {
+    const buttons = document.querySelectorAll('.categorybar button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+}
+
 
 

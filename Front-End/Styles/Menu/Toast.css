@@ -1,0 +1,42 @@
+#Toastcontainer
+{
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: hidden;
+    position: fixed;
+    bottom: 50px;
+    right: 5px;
+    width: 25rem;
+    max-height: 20rem;
+    overflow-x: hidden;
+    gap: 1rem;
+}
+.Toast
+{
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  border: solid 1px var(--links-color);
+  font-family: var(--text-font);
+  font-size: 0.9rem;
+  border-radius: 0.2rem;
+  background-color: var(--home-color);
+  box-shadow: var(--shadow-card);
+  
+  transition: 
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.Toast.active
+{
+  opacity: 1;
+
+  transform: translateX(0);
+}
+.Toast.hide
+{
+   opacity: 0;
+  transform: translateX(120px);
+}
