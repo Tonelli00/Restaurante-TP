@@ -9,6 +9,4 @@ export function AddElement(dish)
  cartCounter.textContent = counter;
  localStorage.setItem("CartContent",JSON.stringify(cartContent));
  console.log(localStorage.getItem("CartContent"));
-
-
 }

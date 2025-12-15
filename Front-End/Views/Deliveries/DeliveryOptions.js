@@ -1,0 +1,58 @@
+import { getAllDeliveries } from "./GetDeliveries.js";
+
+async function DeliveryOptions()
+{
+    const deliveryOptionsDiv = document.querySelector(".DeliveryOptions");
+    const options = await getAllDeliveries();
+    
+    options.forEach((delivery) => 
+    {
+
+        const option = document.createElement('label');
+        option.htmlFor=delivery.id;
+
+        const optionInput = document.createElement('input');
+        optionInput.type="radio";
+        optionInput.id=delivery.id;
+        optionInput.name="DeliveryOption";
+
+        option.appendChild(optionInput);
+        option.append(delivery.name);
+
+        deliveryOptionsDiv.appendChild(option);
+
+        optionInput.addEventListener('change',()=>
+            {   
+                document.querySelectorAll('.DeliveryInfo').forEach(Info => Info.remove());
+               
+                document.querySelectorAll('.DeliveryOptions label').forEach(label =>label.classList.add('hidden'));
+                option.classList.remove('hidden');
+               
+                if(optionInput.id === "1" )
+                    {
+                        optionInput.classList.remove('hidden');
+                        const DeliveryInfo = document.createElement('div');
+                        DeliveryInfo.className = 'DeliveryInfo';
+
+                        const ToInput=document.createElement('input');
+                        ToInput.type="text";
+                        ToInput.placeholder="Ingrese la dirección";
+                        const NotesInput=document.createElement('input');
+                        NotesInput.type="text";
+                        NotesInput.placeholder="Ingrese aclaraciones";
+
+                        DeliveryInfo.appendChild(ToInput);
+                        DeliveryInfo.appendChild(NotesInput);
+                        option.appendChild(DeliveryInfo);
+                        
+                    }
+                    else{optionInput.classList.remove('hidden');}
+
+            });
+    });
+
+
+    
+
+}
+DeliveryOptions();

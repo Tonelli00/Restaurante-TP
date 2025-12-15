@@ -1,0 +1,71 @@
+.DishList
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 80rem;
+    gap: 2rem;
+}
+.DishDiv
+{
+    display: flex;
+    
+    box-shadow: var(--shadow-card);
+    padding: 0.8rem;
+    gap: 1rem;
+    
+}
+.DishList .DishDiv .PriceAndName
+{
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8rem;
+    font-family: var(--text-font);
+    color:var( --fourthText-color);
+    width: 50rem;
+    justify-content: space-between;
+}
+
+.DishList .DishDiv img
+{
+    height: 7rem;
+    width: 8rem;
+    object-fit: cover;   
+    border-radius: 0.4rem;
+}
+.buttonsDiv
+{
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    width: 16%;
+    align-items: end;
+    gap:1rem;
+}
+.buttonsDiv p
+{
+ align-content: center;
+ font-family: var(--text-font);
+ color:var(--fourthText-color);
+ font-size: 1.2rem;
+ height: 70%;
+}
+
+.buttonsDiv button
+{
+    padding: 0.5rem;
+    width: 40px;
+    border-radius: 9999px;
+    border: none;
+    font-size: 1.2rem;
+    background-color: var(--menu-introductionColor);
+    text-align: center;
+}
+.buttonsDiv button:hover
+{
+    background-color: var(--principal-color);
+    color:var( --secondText-color);
+    transition: 0.2s ease-in;
+    cursor:pointer;
+   
+}
