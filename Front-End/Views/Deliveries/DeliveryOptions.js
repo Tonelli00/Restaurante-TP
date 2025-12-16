@@ -2,6 +2,7 @@ import { getAllDeliveries } from "./GetDeliveries.js";
 
 async function DeliveryOptions()
 {
+    const notes = document.querySelector(".notes");
     const deliveryOptionsDiv = document.querySelector(".DeliveryOptions");
     const options = await getAllDeliveries();
     
@@ -12,6 +13,7 @@ async function DeliveryOptions()
         option.htmlFor=delivery.id;
 
         const optionInput = document.createElement('input');
+        optionInput.className="optionInput";
         optionInput.type="radio";
         optionInput.id=delivery.id;
         optionInput.name="DeliveryOption";
@@ -44,9 +46,19 @@ async function DeliveryOptions()
                         DeliveryInfo.appendChild(ToInput);
                         DeliveryInfo.appendChild(NotesInput);
                         option.appendChild(DeliveryInfo);
-                        
                     }
                     else{optionInput.classList.remove('hidden');}
+
+                const notesdiv = document.createElement('div');
+                notesdiv.className="notesdiv";
+                const notesInput = document.createElement('input');
+                notesInput.type='text';
+                notesInput.name='notes';
+                notesInput.placeholder='Notas sobre el pedido (Opcional)';
+                
+                notesdiv.appendChild(notesInput);
+                notes.appendChild(notesdiv);
+
 
             });
     });

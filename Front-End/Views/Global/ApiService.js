@@ -11,7 +11,18 @@ export async function getData(Endpointurl)
     }
     catch(error)
     {
-        console.error("No se pudo establecer una conexion con la")
+        console.error("No se pudo establecer una conexion con la api");
     }
+}
 
+export async function PostData(Endpointurl,data){
+    try
+    {
+    
+
+    }
+    catch(error)
+    {
+        console.error("No se pudo establecer una conexion con la api");
+    }
 }

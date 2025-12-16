@@ -1,5 +1,5 @@
-
-async function CartCards()
+import {IncElement,DecElement,deleteDish } from "./CartBehaviour.js";
+ async function CartCards()
 {
     const dishesSection = document.querySelector(".DishList");
     
@@ -13,7 +13,7 @@ async function CartCards()
         const imgdiv = document.createElement('div');
     
         const img = document.createElement('img');
-        img.src=dish.image
+        img.src=dish.dish.image
         img.alt="Imagen del plato";
         
         
@@ -21,7 +21,7 @@ async function CartCards()
         infodiv.className='infodiv';
 
         const dishCategory = document.createElement('p');
-        dishCategory.textContent=dish.category.name;
+        dishCategory.textContent=dish.dish.category.name;
         dishCategory.style.color = "var(--thirdText-color)";
         dishCategory.style.fontFamily = "var(--text-font)";
 
@@ -29,11 +29,10 @@ async function CartCards()
         const priceandName = document.createElement('div');
         priceandName.className='PriceAndName';
         const dishname = document.createElement('h1');
-        dishname.textContent=dish.name;
+        dishname.textContent=dish.dish.name;
         const dishprice = document.createElement('h1');
-        dishprice.textContent="$"+dish.price;
+        dishprice.textContent="$"+parseInt(dish.dish.price*dish.quantity);
         dishprice.style.color="var( --principal-color)";
-
 
         const buttonsDiv = document.createElement('div');
         buttonsDiv.className="buttonsDiv";
@@ -42,7 +41,30 @@ async function CartCards()
         const decBtn = document.createElement('button');
         decBtn.textContent="-";
         const dishQuantity=document.createElement('p');
-        dishQuantity.textContent=1;
+        dishQuantity.textContent=dish.quantity;
+
+
+        const trashDiv = document.createElement('div');
+        trashDiv.className='TrashDiv';
+        const trashIcon = document.createElement('img');
+        trashIcon.className="trashIcon";
+        trashIcon.src="Components/Images/trash-2.png";
+        trashDiv.appendChild(trashIcon);
+        
+        trashDiv.addEventListener('click',()=>
+            {
+                deleteDish(dish);
+                location.reload();
+            });
+
+        addBtn.addEventListener('click',()=>
+            {
+                IncElement(dish,dishprice,dishQuantity);
+            });
+        decBtn.addEventListener('click',()=>
+            {
+                DecElement(dish,dishprice,dishQuantity);
+            });
 
        
        
@@ -57,14 +79,14 @@ async function CartCards()
         infodiv.appendChild(priceandName);
         infodiv.appendChild(dishCategory);
         infodiv.appendChild(buttonsDiv);
+        infodiv.appendChild(trashDiv);
 
         imgdiv.appendChild(img);
 
+        trashDiv.appendChild(trashIcon);
+
         DishDiv.appendChild(imgdiv);
         DishDiv.appendChild(infodiv);
-        
-        
-       
 
         dishesSection.appendChild(DishDiv);
         

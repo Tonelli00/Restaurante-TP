@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="Styles/Cart/CartPage.css">
     <link rel="stylesheet" href="Styles/Cart/DishList.css">
     <script type="module" src="/Views/Deliveries/DeliveryOptions.js"></script>
+    <script type="module" src="/Views/Cart/CartBehaviour.js"></script>
     <script type="module" src="/Views/Cart/CartCards.js"></script>
+    <script type="module" src="/Views/Order/CreateOrder.js"></script>
 
 </head>
 <body>
@@ -39,13 +41,13 @@
     <section class="ResumeSection">
     <h2>Resumen del pedido</h2>
     <div class="Totalprice">
-        <span>Total:</span>
-        <span>Platos seleccionados:</span>
+        <p>Total:$<span class="total"></span></p>
+        <p>Platos seleccionados:<span class="dishCount"></span></p>
     </div>
     <div class="DeliveryOptions">
         <h2>Seleccione el modo de entrega</h2>
-        
     </div>
+    <div class="notes"></div>
     <div class="OrderBtn">
         <button class="btn">REALIZAR PEDIDO</button>
     </div>

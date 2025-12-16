@@ -9,7 +9,6 @@
 .DishDiv
 {
     display: flex;
-    
     box-shadow: var(--shadow-card);
     padding: 0.8rem;
     gap: 1rem;
@@ -33,6 +32,27 @@
     object-fit: cover;   
     border-radius: 0.4rem;
 }
+
+
+.TrashDiv
+{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    
+}
+.TrashDiv:hover
+{
+cursor: pointer;
+}
+.DishList .DishDiv .trashIcon
+{
+    height:1.5rem;
+    width: 1.5rem;
+    margin-right: 1rem;
+    object-fit: cover;   
+    position:absolute;
+}
 .buttonsDiv
 {
     display: flex;
@@ -41,6 +61,7 @@
     width: 16%;
     align-items: end;
     gap:1rem;
+    
 }
 .buttonsDiv p
 {
@@ -55,6 +76,7 @@
 {
     padding: 0.5rem;
     width: 40px;
+    justify-content: space-between;
     border-radius: 9999px;
     border: none;
     font-size: 1.2rem;
@@ -67,5 +89,4 @@
     color:var( --secondText-color);
     transition: 0.2s ease-in;
     cursor:pointer;
-   
 }
