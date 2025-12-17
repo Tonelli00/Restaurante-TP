@@ -1,0 +1,40 @@
+.MyOrdersIntroduction
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var( --menu-introductionColor);
+    height: 15rem;
+}
+.TextContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.TextContainer h1
+{
+    font-family: var(--tittle-font);
+    font-size: 3.4rem;
+}
+.TextContainer p
+{
+    font-family: var(--text-font);
+    color:var(--thirdText-color);
+    font-size: 1.3rem;
+}
+.OrderCards
+{
+    display: flex;
+    height: 80%;
+    padding: 2rem;
+    
+}
+.OrderCardsIntroduction
+{
+    display: flex;
+    font-family: var( --text-font);
+}

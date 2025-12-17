@@ -1,4 +1,7 @@
-
+.Navbar
+{
+    gap: 30rem;  
+}
 .MenuIntroduction
 {
     display: flex;
