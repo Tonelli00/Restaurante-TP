@@ -1,4 +1,5 @@
 import {PostData} from "../Global/ApiService.js";
+import { toast } from "../Global/GlobalToast.js";
 
 
 export async function CreateOrder(){
@@ -37,8 +38,23 @@ export async function CreateOrder(){
         notes:OrderNotes.value || "No hay nota acerca del pedido"
     }
 
-    PostData(Endpointurl,order);
-    localStorage.removeItem('CartContent');
-    location.reload();
+    const response = await PostData(Endpointurl,order);
+    if(response.ok)
+        {
+           toast("La orden fue creada correctamente","good");
+           setTimeout(()=>
+            {
+            location.reload();
+            },800);
+            localStorage.removeItem('CartContent'); 
+        }
+        else
+        {   
+            toast("Ocurrio un error inesperado, intentelo nuevamente...","bad");
+        }
+    
+
+    
+
 
 }

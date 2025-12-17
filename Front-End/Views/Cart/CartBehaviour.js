@@ -1,9 +1,12 @@
+import { toast } from "../Global/GlobalToast.js";
 import { CreateOrder } from "../Order/CreateOrder.js";
 import { resumeInfo } from "./CartResumeInfo.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     resumeInfo();
     DoOrder();  
+    const btn = document.querySelector(".btn");
+    if (btn) btn.disabled = true;
 });
 
 export function AddElement(dish)
@@ -77,10 +80,15 @@ export function deleteDish(item)
 function DoOrder()
 {
     const btn = document.querySelector(".btn");
-    btn.addEventListener('click',()=>
+    if(btn)
+    {
+        btn.addEventListener('click',()=>
         {
             CreateOrder();
+            
         });
+    }
+    
 }
 
 export function emptyCart()
@@ -89,6 +97,29 @@ export function emptyCart()
     cartContent.classList.add('empty');
     cartContent.innerHTML='';
     
+    const mensagediv=document.createElement('div');
+    mensagediv.className='emptymsj';
 
+    const tittle = document.createElement('h1');
+    tittle.textContent='Tu carrito está vacío';
+    const text = document.createElement('p');
+    text.textContent="Explora nuestro menú y agrega tus platos favoritos";
 
+    const menuBtn = document.createElement('button');
+    menuBtn.className='btn';
+    menuBtn.textContent="← VER MENÚ";
+    menuBtn.addEventListener('click',()=>
+        {
+            location.href='Menu.html';
+        });
+
+    const emptycartImg = document.createElement('img');
+    emptycartImg.src="Components/Images/empty-cart.png";
+    
+    mensagediv.appendChild(emptycartImg);
+    mensagediv.appendChild(tittle);
+    mensagediv.appendChild(text);
+    mensagediv.appendChild(menuBtn);
+
+    cartContent.appendChild(mensagediv);
 }

@@ -17,6 +17,8 @@ import {IncElement,DecElement,deleteDish, emptyCart } from "./CartBehaviour.js";
         img.src=dish.dish.image
         img.alt="Imagen del plato";
         
+        img.onerror=()=>imageNotFound(img);
+        
         
         const infodiv = document.createElement('div');
         infodiv.className='infodiv';
@@ -115,6 +117,10 @@ import {IncElement,DecElement,deleteDish, emptyCart } from "./CartBehaviour.js";
     {
         emptyCart();
     }
-   
+   function imageNotFound(img)
+    {
+    img.src ='Components/Images/imageNotFound.jpg';
+    }
+
 }
 CartCards();

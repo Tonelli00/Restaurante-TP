@@ -35,12 +35,39 @@
     display: flex;
     flex-direction: row;
     gap: 5rem;
+    
     padding: 2rem;
     background-color:var(--Cart-BGColor);
 }
 .CartResume.empty
 {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25rem;
+}
+.CartResume.empty .emptymsj
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.CartResume.empty .emptymsj h1
+{
+    font-family: var(--tittle-font);
+    font-size: 1.8rem;
+}
+.CartResume.empty .emptymsj p
+{
+   color: var(--thirdText-color);
+   font-size: 1.2rem;
+}
+.CartResume.empty .emptymsj img
+{
+  height:6rem;
 }
 .ResumeSection
 {
@@ -53,8 +80,8 @@ box-shadow: var( --shadow-card);
 background-color: var( --cartCards-color);
 justify-content: start;
 align-items: center;
-max-height: 25.8rem;
-width: 30rem;
+max-height: 27.8rem;
+
 border-radius: 0.5rem;
 }
 .ResumeSection h2
@@ -91,6 +118,11 @@ border-radius: 0.5rem;
     transition: 0.3s ease;
     background-color: rgb(154, 56, 56);
 }
+.btn:disabled
+{
+    cursor:not-allowed;
+    background-color: rgb(127, 124, 124);
+}
 .DeliveryInfo
 {
     display: flex;
@@ -105,6 +137,7 @@ border-radius: 0.5rem;
 {
     margin-top: 1rem;
     border-radius: 0.2rem;
+    width: 16rem;
     border: solid 1px #E7E0DA;
     padding: 0.8rem;
 }

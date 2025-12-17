@@ -1,5 +1,5 @@
 import { getAllDeliveries } from "./GetDeliveries.js";
-
+import { toast } from "../Global/GlobalToast.js";
 async function DeliveryOptions()
 {
     const notes = document.querySelector(".notes");
@@ -40,8 +40,13 @@ async function DeliveryOptions()
                         ToInput.className='ToInput';
                         ToInput.type="text";
                         ToInput.placeholder="Ingrese la dirección";
+                     
+                        ToInput.addEventListener('input', validateOrder);
+                        
                         DeliveryInfo.appendChild(ToInput);
+                        
                         option.appendChild(DeliveryInfo);
+                        
                     }
                     else{optionInput.classList.remove('hidden');}
 
@@ -54,13 +59,33 @@ async function DeliveryOptions()
                 notesInput.placeholder='Notas sobre el pedido (Opcional)';
                 
                 notesdiv.appendChild(notesInput);
+                notes.innerHTML=''; 
                 notes.appendChild(notesdiv);
-
+                
+                validateOrder();
 
             });
     });
 
+function validateOrder() {
+    const btn = document.querySelector(".btn");
+    const selectedOption = document.querySelector('input[name="DeliveryOption"]:checked');
+    const addressInput = document.querySelector(".ToInput");
 
+    let isValid = true ;
+
+    if (!selectedOption) {
+        isValid = false;
+    }
+
+    if (selectedOption?.id === "1") {
+        if (!addressInput || addressInput.value.trim() === "") {
+            isValid = false;
+        }
+    }
+
+    btn.disabled = !isValid;
+}
     
 
 }

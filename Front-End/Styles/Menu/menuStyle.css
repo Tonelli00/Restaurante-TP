@@ -35,7 +35,6 @@
     padding: 2rem;
     gap: 2rem;
     border-bottom: solid 1px #E7E0DA;
-
 }
 
 .CategorySection input
@@ -50,4 +49,13 @@
 {
     outline: 2px solid  #cd7674;
     
+}
+.Dishescards.EmptyCategory
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+    font-family: var(--tittle-font);
+    color:var(--thirdText-color);
 }

@@ -6,8 +6,10 @@ export function menuCards(dishes)
     const cardsDiv = document.querySelector('.Dishescards');
     cardsDiv.innerHTML='';  
 
-    dishes.forEach(dish => {
-        
+    if(dishes.length>0)
+    { 
+        cardsDiv.classList.remove('EmptyCategory');
+        dishes.forEach(dish => {
 
     const card = document.createElement('div');
     card.className='card';
@@ -18,7 +20,9 @@ export function menuCards(dishes)
     img.src=dish.image
     img.alt="Imagen del plato";
     
-    
+    img.onerror=()=>imageNotFound(img);
+
+
     const infodiv = document.createElement('div');
     infodiv.className='infodiv';
     
@@ -69,5 +73,25 @@ export function menuCards(dishes)
 
 
 });
+}
+else
+    {
+        cardsDiv.classList.add('EmptyCategory');
+        const emptyMensage = document.createElement('div');
+        const message = document.createElement('h1');
+        message.textContent='Lo sentimos, no contamos con platos para esta categoria...';
+        emptyMensage.appendChild(message);
+
+        cardsDiv.appendChild(emptyMensage);
+        
+    }
+   
+            
+
+
+function imageNotFound(img)
+{
+    img.src ='Components/Images/imageNotFound.jpg';
+}
 
 }

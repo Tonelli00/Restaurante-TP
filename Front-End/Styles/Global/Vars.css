@@ -18,6 +18,8 @@
     --tittle-font:serif;
     --text-font:sans-serif;
     --text-highlighted:#e1a432;
+    --Succesfull-CreateOrder:rgba(161, 255, 161, 0.797);
+    --Bad-CreateOrder:rgb(255, 103, 103);
     --shadow-card: 0 2px 12px -2px hsla(20, 20%, 15%, 0.08);
     --card-hover: 0 10px 40px -10px hsla(350, 60%, 35%, 0.2);
 

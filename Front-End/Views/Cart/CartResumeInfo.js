@@ -1,3 +1,4 @@
+
 export function resumeInfo()
 {
     const totalSpan = document.querySelector(".total");
@@ -12,8 +13,12 @@ export function resumeInfo()
         total+=parseInt(item.dish.price*item.quantity);   
         totalItems+=item.quantity;     
     });
-   totalSpan.textContent=total;
-   dishCountSpan.textContent=totalItems;
+   if(totalSpan && dishCountSpan)
+    {
+         totalSpan.textContent=total;
+         dishCountSpan.textContent=totalItems;        
+    }
+
 
 
 }
