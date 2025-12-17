@@ -15,10 +15,25 @@ export async function getData(Endpointurl)
     }
 }
 
-export async function PostData(Endpointurl,data){
+export async function PostData(Endpointurl,orderdata){
     try
     {
-    
+        const order=
+        {
+            items:orderdata.items,
+            delivery:orderdata.delivery,
+            notes:orderdata.notes,
+        };
+
+        const opcionesFetch = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify(order)};
+
+        const response = await fetch(`${base_URL}${Endpointurl}`,opcionesFetch);
+        return response;
 
     }
     catch(error)

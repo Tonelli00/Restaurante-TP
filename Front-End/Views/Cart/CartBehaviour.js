@@ -22,7 +22,8 @@ export function AddElement(dish)
             cartContent.push(
                 {
                     dish:dish,
-                    quantity:1
+                    quantity:1,
+                    notes:null
                 });
         }
 const totalItems = cartContent.reduce((sum, i) => sum + i.quantity, 0)    
@@ -80,4 +81,14 @@ function DoOrder()
         {
             CreateOrder();
         });
+}
+
+export function emptyCart()
+{
+    const cartContent = document.querySelector(".CartResume");
+    cartContent.classList.add('empty');
+    cartContent.innerHTML='';
+    
+
+
 }

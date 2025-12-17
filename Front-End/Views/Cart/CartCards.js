@@ -1,11 +1,12 @@
-import {IncElement,DecElement,deleteDish } from "./CartBehaviour.js";
+import {IncElement,DecElement,deleteDish, emptyCart } from "./CartBehaviour.js";
  async function CartCards()
 {
     const dishesSection = document.querySelector(".DishList");
     
-    const Selecteddishes = JSON.parse(localStorage.getItem('CartContent'));
-
-    Selecteddishes.forEach(dish => {
+    const Selecteddishes = JSON.parse(localStorage.getItem('CartContent')) || [];
+    if(Selecteddishes.length>0)
+        {
+        Selecteddishes.forEach(dish => {
 
         const DishDiv = document.createElement('div');
         DishDiv.classList='DishDiv';
@@ -42,7 +43,19 @@ import {IncElement,DecElement,deleteDish } from "./CartBehaviour.js";
         decBtn.textContent="-";
         const dishQuantity=document.createElement('p');
         dishQuantity.textContent=dish.quantity;
+        const notesInput = document.createElement('input');
+        notesInput.className="DishNotes";
+        notesInput.type='text';
+        notesInput.placeholder='Aclaraciones para el plato';
 
+        notesInput.addEventListener('input',()=>
+            {
+                dish.notes = notesInput.value || "No se indico una nota al plato";
+                const cart = JSON.parse(localStorage.getItem('CartContent'));
+                const index = cart.findIndex(item=> item.dish.id == dish.dish.id);
+                cart[index]=dish;
+                localStorage.setItem('CartContent',JSON.stringify(cart));
+            });
 
         const trashDiv = document.createElement('div');
         trashDiv.className='TrashDiv';
@@ -54,7 +67,13 @@ import {IncElement,DecElement,deleteDish } from "./CartBehaviour.js";
         trashDiv.addEventListener('click',()=>
             {
                 deleteDish(dish);
-                location.reload();
+                const cart = JSON.parse(localStorage.getItem('CartContent')) || [];
+                DishDiv.remove(); //Borro el div que toque.
+
+                if(cart.length === 0)
+                {
+                    emptyCart();
+                }
             });
 
         addBtn.addEventListener('click',()=>
@@ -71,6 +90,7 @@ import {IncElement,DecElement,deleteDish } from "./CartBehaviour.js";
         buttonsDiv.appendChild(decBtn);
         buttonsDiv.appendChild(dishQuantity);
         buttonsDiv.appendChild(addBtn);
+        buttonsDiv.appendChild(notesInput);
 
         priceandName.appendChild(dishname);
         priceandName.appendChild(dishprice);
@@ -82,9 +102,7 @@ import {IncElement,DecElement,deleteDish } from "./CartBehaviour.js";
         infodiv.appendChild(trashDiv);
 
         imgdiv.appendChild(img);
-
-        trashDiv.appendChild(trashIcon);
-
+        
         DishDiv.appendChild(imgdiv);
         DishDiv.appendChild(infodiv);
 
@@ -92,5 +110,11 @@ import {IncElement,DecElement,deleteDish } from "./CartBehaviour.js";
         
     });
 
+    }
+    else
+    {
+        emptyCart();
+    }
+   
 }
 CartCards();

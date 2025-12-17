@@ -37,14 +37,10 @@ async function DeliveryOptions()
                         DeliveryInfo.className = 'DeliveryInfo';
 
                         const ToInput=document.createElement('input');
+                        ToInput.className='ToInput';
                         ToInput.type="text";
                         ToInput.placeholder="Ingrese la dirección";
-                        const NotesInput=document.createElement('input');
-                        NotesInput.type="text";
-                        NotesInput.placeholder="Ingrese aclaraciones";
-
                         DeliveryInfo.appendChild(ToInput);
-                        DeliveryInfo.appendChild(NotesInput);
                         option.appendChild(DeliveryInfo);
                     }
                     else{optionInput.classList.remove('hidden');}
@@ -52,6 +48,7 @@ async function DeliveryOptions()
                 const notesdiv = document.createElement('div');
                 notesdiv.className="notesdiv";
                 const notesInput = document.createElement('input');
+                notesInput.className='OrderNotes';
                 notesInput.type='text';
                 notesInput.name='notes';
                 notesInput.placeholder='Notas sobre el pedido (Opcional)';

@@ -90,3 +90,17 @@ cursor: pointer;
     transition: 0.2s ease-in;
     cursor:pointer;
 }
+
+.buttonsDiv .DishNotes
+{
+    border-radius: 0.2rem;
+    border: solid 1px #E7E0DA;
+    padding: 0.8rem;
+}
+
+.buttonsDiv .DishNotes:focus
+{
+outline: 2px solid  #cd7674;
+
+}
+    
