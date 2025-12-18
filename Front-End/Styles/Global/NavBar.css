@@ -7,7 +7,7 @@
     width: 100%;
     padding: 1.3rem;
     background-color: var(--home-color);
-    gap: 28rem;
+    gap: 30rem;
     z-index: 1000;
 }
 .tittle

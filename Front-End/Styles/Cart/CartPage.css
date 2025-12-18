@@ -42,7 +42,7 @@
 .CartResume.empty
 {
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     height: 25rem;
@@ -80,7 +80,7 @@ box-shadow: var( --shadow-card);
 background-color: var( --cartCards-color);
 justify-content: start;
 align-items: center;
-max-height: 27.8rem;
+max-height: 30rem;
 
 border-radius: 0.5rem;
 }

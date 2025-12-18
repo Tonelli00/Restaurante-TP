@@ -5,9 +5,8 @@ async function homecard() {
    
 
     const dishes = await getAllDishes();
-    const selectedDishes = dishes.slice(3,6);
+    const selectedDishes = dishes.slice(0,3);
 
-    console.log(selectedDishes);
 
     selectedDishes.forEach(dish => {
         
@@ -20,7 +19,7 @@ async function homecard() {
     const img = document.createElement('img');
     img.src=dish.image
     img.alt="Imagen del plato";
-    
+    img.onerror=()=>imageNotFound(img);
     
     const infodiv = document.createElement('div');
     infodiv.className='infodiv';
@@ -71,6 +70,11 @@ async function homecard() {
 
 
 });
+
+function imageNotFound(img)
+{
+    img.src ='Components/Images/imageNotFound.jpg';
+}
 
 }        
 

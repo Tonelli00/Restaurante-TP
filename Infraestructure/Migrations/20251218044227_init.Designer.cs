@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250923174835_ImageURLfix")]
-    partial class ImageURLfix
+    [Migration("20251218044227_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,19 +37,17 @@ namespace Infraestructure.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("nvarchar(255)")
                         .HasColumnName("Description");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(25)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(25)")
+                        .HasColumnType("nvarchar(25)")
                         .HasColumnName("Name");
 
                     b.Property<int>("Order")
-                        .HasColumnType("int")
+                        .HasColumnType("integer")
                         .HasColumnName("Order");
 
                     b.HasKey("Id");
@@ -83,28 +81,28 @@ namespace Infraestructure.Migrations
                             Id = 4,
                             Description = "Variedad de pastas caseras y salsas tradicionales.",
                             Name = "Pastas",
-                            Order = 4
+                            Order = 5
                         },
                         new
                         {
                             Id = 5,
                             Description = "Cortes de carne asados a la parrilla, servidos con guarniciones.",
                             Name = "Parrilla",
-                            Order = 5
+                            Order = 4
                         },
                         new
                         {
                             Id = 6,
                             Description = "Pizzas artesanales con masa casera y variedad de ingredientes.",
                             Name = "Pizzas",
-                            Order = 6
+                            Order = 7
                         },
                         new
                         {
                             Id = 7,
                             Description = "Sandwiches y lomitos completos preparados al momento.",
                             Name = "Sandwiches",
-                            Order = 7
+                            Order = 6
                         },
                         new
                         {
@@ -141,7 +139,6 @@ namespace Infraestructure.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(25)
-                        .IsUnicode(true)
                         .HasColumnType("nvarchar(25)")
                         .HasColumnName("Name");
 
@@ -238,21 +235,21 @@ namespace Infraestructure.Migrations
                         .HasColumnName("CreateDate")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<int>("DeliveryId")
-                        .HasColumnType("int")
-                        .HasColumnName("DeliveryId");
-
                     b.Property<string>("DeliveryTo")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("DeliveryTo");
 
+                    b.Property<int>("DeliveryType")
+                        .HasColumnType("int")
+                        .HasColumnName("DeliveryId");
+
                     b.Property<string>("Notes")
                         .HasColumnType("varchar(max)")
                         .HasColumnName("Notes");
 
-                    b.Property<int>("OrderStatusId")
+                    b.Property<int>("OverallStatus")
                         .HasColumnType("int")
                         .HasColumnName("StatusId");
 
@@ -268,9 +265,9 @@ namespace Infraestructure.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("DeliveryId");
+                    b.HasIndex("DeliveryType");
 
-                    b.HasIndex("OrderStatusId");
+                    b.HasIndex("OverallStatus");
 
                     b.ToTable("Order", (string)null);
                 });
@@ -290,7 +287,7 @@ namespace Infraestructure.Migrations
                         .HasColumnName("CreateDate")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<Guid>("DishId")
+                    b.Property<Guid>("Dish")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("DishId");
 
@@ -299,7 +296,7 @@ namespace Infraestructure.Migrations
                         .HasColumnType("varchar(max)")
                         .HasColumnName("Notes");
 
-                    b.Property<long>("OrderId")
+                    b.Property<long>("Order")
                         .HasColumnType("bigint")
                         .HasColumnName("OrderId");
 
@@ -307,17 +304,17 @@ namespace Infraestructure.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Quantity");
 
-                    b.Property<int>("StatusId")
+                    b.Property<int>("Status")
                         .HasColumnType("int")
                         .HasColumnName("StatusId");
 
                     b.HasKey("OrderItemId");
 
-                    b.HasIndex("DishId");
+                    b.HasIndex("Dish");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("Order");
 
-                    b.HasIndex("StatusId");
+                    b.HasIndex("Status");
 
                     b.ToTable("OrderItem", (string)null);
                 });
@@ -383,48 +380,48 @@ namespace Infraestructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Order", b =>
                 {
-                    b.HasOne("Domain.Entities.DeliveryType", "DeliveryType")
+                    b.HasOne("Domain.Entities.DeliveryType", "DeliveryTypeEntity")
                         .WithMany("DeliveryInOrders")
-                        .HasForeignKey("DeliveryId")
+                        .HasForeignKey("DeliveryType")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Status", "OverallStatus")
-                        .WithMany("StatusInOrder")
-                        .HasForeignKey("OrderStatusId")
+                    b.HasOne("Domain.Entities.Status", "StatusEntity")
+                        .WithMany("Orders")
+                        .HasForeignKey("OverallStatus")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DeliveryType");
+                    b.Navigation("DeliveryTypeEntity");
 
-                    b.Navigation("OverallStatus");
+                    b.Navigation("StatusEntity");
                 });
 
             modelBuilder.Entity("Domain.Entities.OrderItem", b =>
                 {
-                    b.HasOne("Domain.Entities.Dish", "Dish")
+                    b.HasOne("Domain.Entities.Dish", "DishEntity")
                         .WithMany("OrderItems")
-                        .HasForeignKey("DishId")
+                        .HasForeignKey("Dish")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Order", "Order")
-                        .WithMany("OrdersItems")
-                        .HasForeignKey("OrderId")
+                    b.HasOne("Domain.Entities.Order", "OrderEntity")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("Order")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Status", "Status")
-                        .WithMany("StatusInOrderItems")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Domain.Entities.Status", "StatusEntity")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("Status")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Dish");
+                    b.Navigation("DishEntity");
 
-                    b.Navigation("Order");
+                    b.Navigation("OrderEntity");
 
-                    b.Navigation("Status");
+                    b.Navigation("StatusEntity");
                 });
 
             modelBuilder.Entity("Domain.Entities.Category", b =>
@@ -444,14 +441,14 @@ namespace Infraestructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Order", b =>
                 {
-                    b.Navigation("OrdersItems");
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("Domain.Entities.Status", b =>
                 {
-                    b.Navigation("StatusInOrder");
+                    b.Navigation("OrderItems");
 
-                    b.Navigation("StatusInOrderItems");
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

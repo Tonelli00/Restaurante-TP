@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Infraestructure.Migrations
 {
     /// <inheritdoc />
@@ -17,9 +19,9 @@ namespace Infraestructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "varchar(25)", unicode: false, maxLength: 25, nullable: false),
-                    Description = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
-                    Order = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Order = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,17 +63,17 @@ namespace Infraestructure.Migrations
                     Description = table.Column<string>(type: "varchar(max)", unicode: false, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Available = table.Column<bool>(type: "bit", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    ImagenURL = table.Column<string>(type: "varchar(max)", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "date", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "date", nullable: false)
+                    ImageURL = table.Column<string>(type: "varchar(max)", nullable: false),
+                    Category = table.Column<int>(type: "int", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdateDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Dish", x => x.DishId);
                     table.ForeignKey(
-                        name: "FK_Dish_Category_CategoryId",
-                        column: x => x.CategoryId,
+                        name: "FK_Dish_Category_Category",
+                        column: x => x.Category,
                         principalTable: "Category",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -86,10 +88,10 @@ namespace Infraestructure.Migrations
                     DeliveryId = table.Column<int>(type: "int", nullable: false),
                     DeliveryTo = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     StatusId = table.Column<int>(type: "int", nullable: false),
-                    Notes = table.Column<string>(type: "varchar(max)", nullable: false),
+                    Notes = table.Column<string>(type: "varchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "date", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "date", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdateDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()")
                 },
                 constraints: table =>
                 {
@@ -105,7 +107,7 @@ namespace Infraestructure.Migrations
                         column: x => x.StatusId,
                         principalTable: "Status",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -119,7 +121,7 @@ namespace Infraestructure.Migrations
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     Notes = table.Column<string>(type: "varchar(max)", nullable: false),
                     StatusId = table.Column<int>(type: "int", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "date", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()")
                 },
                 constraints: table =>
                 {
@@ -141,13 +143,52 @@ namespace Infraestructure.Migrations
                         column: x => x.StatusId,
                         principalTable: "Status",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Category",
+                columns: new[] { "Id", "Description", "Name", "Order" },
+                values: new object[,]
+                {
+                    { 1, "Pequeñas porciones para abrir el apetito antes del plato principal.", "Entradas", 1 },
+                    { 2, "Opciones frescas y livianas, ideales como acompañamiento o plato principal.", "Ensaladas", 2 },
+                    { 3, " Platos rápidos y clásicos de bodegón: milanesas, tortillas, revueltos.", "Minutas", 3 },
+                    { 4, "Variedad de pastas caseras y salsas tradicionales.", "Pastas", 5 },
+                    { 5, "Cortes de carne asados a la parrilla, servidos con guarniciones.", "Parrilla", 4 },
+                    { 6, "Pizzas artesanales con masa casera y variedad de ingredientes.", "Pizzas", 7 },
+                    { 7, "Sandwiches y lomitos completos preparados al momento.", "Sandwiches", 6 },
+                    { 8, "Gaseosas, jugos, aguas y opciones sin alcohol.", "Bebidas", 8 },
+                    { 9, "Cervezas de producción artesanal, rubias, rojas y negras.", "Cervezas Artesanal", 9 },
+                    { 10, "Clásicos dulces caseros para cerrar la comida.", "Postres", 10 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "DeliveryType",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Delivery" },
+                    { 2, "Take Away" },
+                    { 3, "Dine in" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Status",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Pending" },
+                    { 2, "In progress" },
+                    { 3, "Ready" },
+                    { 4, "Delivery" },
+                    { 5, "Closed" }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dish_CategoryId",
+                name: "IX_Dish_Category",
                 table: "Dish",
-                column: "CategoryId");
+                column: "Category");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_DeliveryId",

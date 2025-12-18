@@ -195,8 +195,9 @@ namespace Infraestructure.Persistence
                 //Order
                 entity.Property(o => o.Order).HasColumnName("OrderId").IsRequired();
                 entity.HasOne<Order>(oI => oI.OrderEntity)
-                      .WithMany(o => o.OrderItems)
-                      .HasForeignKey(oI => oI.Order);
+                    .WithMany(o => o.OrderItems)
+                    .HasForeignKey(oI => oI.Order)
+                    .OnDelete(DeleteBehavior.Cascade);
                      
                 //Establezco la relación de 1 a muchos entre order item y order. Dado que un order item pertenece a una orden pero una order puede tener muchos order items
 
@@ -205,7 +206,8 @@ namespace Infraestructure.Persistence
                 entity.Property(o => o.Dish).HasColumnName("DishId").IsRequired();
                 entity.HasOne<Dish>(o => o.DishEntity)
                       .WithMany(d => d.OrderItems)
-                      .HasForeignKey(o => o.Dish);
+                      .HasForeignKey(o => o.Dish)
+                      .OnDelete(DeleteBehavior.Cascade);
                       
                 //Aca establezco que un order item tiene un plato pero un plato puede estar en distintos orders items. La clave foranea es el ID del plato (que tengo como variable en la clase order item)
 
@@ -217,7 +219,8 @@ namespace Infraestructure.Persistence
                 entity.Property(o => o.Status).HasColumnName("StatusId").IsRequired();
                 entity.HasOne<Status>(o => o.StatusEntity)
                       .WithMany(s => s.OrderItems)
-                      .HasForeignKey(o => o.Status);
+                      .HasForeignKey(o => o.Status)
+                      .OnDelete(DeleteBehavior.Restrict);
                       
 
                 //Aca establezco que un order item tiene un status pero un status puede estar en distintos order items. La fk es statusId

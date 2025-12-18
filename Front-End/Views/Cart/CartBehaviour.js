@@ -106,7 +106,8 @@ export function emptyCart()
     text.textContent="Explora nuestro menú y agrega tus platos favoritos";
 
     const menuBtn = document.createElement('button');
-    menuBtn.className='btn';
+    menuBtn.className='btn_';
+
     menuBtn.textContent="← VER MENÚ";
     menuBtn.addEventListener('click',()=>
         {

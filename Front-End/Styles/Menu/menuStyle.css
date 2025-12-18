@@ -21,7 +21,7 @@
 }
 .MenuIntroduction .TextContainer h1
 {
-    font-family: var( --tittle-font);
+    font-family:var(--tittle-font);
     font-size: 4rem;
 }
 .MenuIntroduction .TextContainer p

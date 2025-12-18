@@ -246,7 +246,7 @@ namespace Infraestructure.Migrations
                         .HasColumnType("varchar(max)")
                         .HasColumnName("Notes");
 
-                    b.Property<int>("Overallstatus")
+                    b.Property<int>("OverallStatus")
                         .HasColumnType("int")
                         .HasColumnName("StatusId");
 
@@ -264,7 +264,7 @@ namespace Infraestructure.Migrations
 
                     b.HasIndex("DeliveryType");
 
-                    b.HasIndex("Overallstatus");
+                    b.HasIndex("OverallStatus");
 
                     b.ToTable("Order", (string)null);
                 });
@@ -385,7 +385,7 @@ namespace Infraestructure.Migrations
 
                     b.HasOne("Domain.Entities.Status", "StatusEntity")
                         .WithMany("Orders")
-                        .HasForeignKey("Overallstatus")
+                        .HasForeignKey("OverallStatus")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -403,7 +403,7 @@ namespace Infraestructure.Migrations
                         .IsRequired();
 
                     b.HasOne("Domain.Entities.Order", "OrderEntity")
-                        .WithMany("OrdersItems")
+                        .WithMany("OrderItems")
                         .HasForeignKey("Order")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -411,7 +411,7 @@ namespace Infraestructure.Migrations
                     b.HasOne("Domain.Entities.Status", "StatusEntity")
                         .WithMany("OrderItems")
                         .HasForeignKey("Status")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("DishEntity");
@@ -438,7 +438,7 @@ namespace Infraestructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Order", b =>
                 {
-                    b.Navigation("OrdersItems");
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("Domain.Entities.Status", b =>
