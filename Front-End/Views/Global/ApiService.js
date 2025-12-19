@@ -41,3 +41,23 @@ export async function PostData(Endpointurl,orderdata){
         console.error("No se pudo establecer una conexion con la api");
     }
 }
+
+export async function PutData(Endpointurl,items)
+{
+    try
+    {
+        const opcionesFetch = {
+        method: 'PUT',
+        headers: {
+        'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify(items)};
+        
+        const response = await fetch(`${base_URL}${Endpointurl}`,opcionesFetch);
+        return response;
+    }
+    catch(error)
+    {
+        console.error("No se pudo establecer una conexion con la api");
+    }
+}

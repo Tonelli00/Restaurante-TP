@@ -2,6 +2,9 @@
 {
     gap: 34rem;
 }
+body.add-dish-mode .Navbar{
+    display: none;
+}
 
 .CartIntroduction
 {
@@ -35,7 +38,6 @@
     display: flex;
     flex-direction: row;
     gap: 5rem;
-    
     padding: 2rem;
     background-color:var(--Cart-BGColor);
 }
@@ -81,7 +83,7 @@ background-color: var( --cartCards-color);
 justify-content: start;
 align-items: center;
 max-height: 30rem;
-
+width: 35%;
 border-radius: 0.5rem;
 }
 .ResumeSection h2
@@ -137,7 +139,7 @@ border-radius: 0.5rem;
 {
     margin-top: 1rem;
     border-radius: 0.2rem;
-    width: 16rem;
+    width: 95%;
     border: solid 1px #E7E0DA;
     padding: 0.8rem;
 }

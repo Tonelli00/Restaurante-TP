@@ -1,13 +1,27 @@
 import { getAllDeliveries } from "./GetDeliveries.js";
-import { toast } from "../Global/GlobalToast.js";
+
 async function DeliveryOptions()
 {
     const notes = document.querySelector(".notes");
     const deliveryOptionsDiv = document.querySelector(".DeliveryOptions");
     const options = await getAllDeliveries();
     
-    options.forEach((delivery) => 
-    {
+    const params= new URLSearchParams(window.location.search);
+    const act = params.get("act");
+    if(act==='agg')
+        {
+        const resumeSection = document.querySelector('.ResumeSection');
+        if(resumeSection)
+        {
+        resumeSection.style.height='17rem';
+        deliveryOptionsDiv.innerHTML='';
+        return;
+        }
+    }
+    else
+        {
+         options.forEach((delivery) => 
+        {
 
         const option = document.createElement('label');
         option.htmlFor=delivery.id;
@@ -66,6 +80,8 @@ async function DeliveryOptions()
 
             });
     });
+        }
+   
 
 function validateOrder() {
     const btn = document.querySelector(".btn");

@@ -1,6 +1,27 @@
 .Navbar
 {
-    gap: 30rem;  
+    gap: 29rem;  
+    
+}
+.Navbar ul
+{
+    width: 25rem
+}
+
+body.add-dish-mode .inicio,
+body.add-dish-mode .menuA,
+body.add-dish-mode .MyOrders {
+    display: none;
+}
+.Navbar .MyOrders
+{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
+.Navbar .cart:hover
+{
+    cursor: pointer;
 }
 .MenuIntroduction
 {

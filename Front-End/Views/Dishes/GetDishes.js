@@ -27,3 +27,9 @@ export async function getDishesByNameandCat(DishName,categoryId) {
     }
     
 }
+
+export async function GetDishPriceById(dishId){
+    const EndpointUrl=`api/v1/Dish/${dishId}`;
+    const dish = await getData(EndpointUrl);
+    return dish.price;
+}

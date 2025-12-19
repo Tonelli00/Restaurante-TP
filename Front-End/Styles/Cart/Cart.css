@@ -30,6 +30,5 @@
     color: black;
     justify-content: end;
     margin-left: 2rem;
-    font-family: var(--text-font);
-   
+    font-family: var(--text-font);  
 }

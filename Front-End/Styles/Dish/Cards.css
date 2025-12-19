@@ -57,7 +57,8 @@
 .Dishescards .card .btn
 {
   display: block;
-  align-items: center;
+  justify-content: end;  
+  align-items: end;
   margin: 0 auto ;
   width: 80%;
 }

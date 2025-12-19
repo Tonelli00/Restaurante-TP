@@ -1,6 +1,6 @@
 import { toast } from "../Menu/Toast.js";
 import {AddElement} from "../Cart/CartBehaviour.js";
-
+import { UpdateOrder} from "../Order/UpdateOrder.js";
 export function menuCards(dishes)
 {
     const cardsDiv = document.querySelector('.Dishescards');
@@ -48,13 +48,22 @@ export function menuCards(dishes)
     btn.textContent="+ AGREGAR";
     btn.addEventListener('click',(event)=>
         {
-            event.preventDefault();
-            toast(dish.name); 
-            AddElement(dish);
+            const params= new URLSearchParams(window.location.search);
+            const act = params.get("act");
+            if(act === 'agg')
+            {
+                toast(dish.name);
+                const orderId = localStorage.getItem('OrderID');
+                AddElement(dish);
+            }
+            else
+                {
+                event.preventDefault();
+                toast(dish.name); 
+                AddElement(dish);
+                }
         })
-    
-
-
+      
     priceandName.appendChild(dishname);
     priceandName.appendChild(dishprice);
 
