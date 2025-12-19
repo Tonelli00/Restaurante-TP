@@ -61,3 +61,26 @@ export async function PutData(Endpointurl,items)
         console.error("No se pudo establecer una conexion con la api");
     }
 }
+
+export async function PatchData(Endpointurl,data)
+{
+    try
+    {
+        const opcionesFetch = {
+        method: 'PATCH',
+        headers: {
+        'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify(data)
+    };
+        
+        const response = await fetch(`${base_URL}${Endpointurl}`,opcionesFetch);
+        console.log(response);
+        return response;
+    }
+    catch(error)
+    {
+        console.error("No se pudo establecer una conexion con la api");
+        return null;
+    }
+}

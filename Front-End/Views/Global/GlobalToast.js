@@ -1,7 +1,8 @@
 export function toast(msj,status)
 {
     const toastcontainerDiv = document.getElementById('Toast');
-
+    
+    if (!toastcontainerDiv) return;
     const toastdiv = document.createElement('div');
     toastdiv.className='Toast';
     toastdiv.innerHTML='';

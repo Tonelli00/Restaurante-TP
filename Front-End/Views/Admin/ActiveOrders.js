@@ -47,8 +47,9 @@ export function createActiveCards(orders)
         cartBody.appendChild(bodyInfo);
 
 
-        anchor.addEventListener('click',()=>
+        anchor.addEventListener('click',(a)=>
             {   
+                a.preventDefault();
                 updateModal(item,order.orderNumber);
             });
         });

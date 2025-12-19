@@ -29,13 +29,12 @@
     opacity 0.35s ease;
 }
 
-.Toast.active
-{
+.Toast.active{
   opacity: 1;
 
   transform: translateX(0);
 }
-.Toast.hide
+.Toast.hide,#Toast.hide
 {
    opacity: 0;
   transform: translateX(120px);

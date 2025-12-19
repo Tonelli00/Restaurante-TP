@@ -1,5 +1,5 @@
 import { GetStatuses } from "../Status/GetAllStatuses.js";
-
+import { updateItemStatus } from "./UpdateItem.js";
 export async function updateModal(item,orderNumber)
 {
 
@@ -7,7 +7,6 @@ export async function updateModal(item,orderNumber)
     const contentDiv = document.querySelector('.modalContent');
     const closeBtn = document.querySelector('.closeBtn');
 
-    alert(orderNumber);
 
 
     modalDiv.classList.add('active');
@@ -45,6 +44,8 @@ export async function updateModal(item,orderNumber)
     const btnDiv = document.createElement('div');
     btnDiv.className='btnDiv';
    
+    let statusIdSelected = null;
+
     statuses.forEach(status => 
     {
         const statusBtn=document.createElement('button');
@@ -52,7 +53,7 @@ export async function updateModal(item,orderNumber)
         statusBtn.value=status.id;
         statusBtn.addEventListener('click',()=>
             {
-                 alert(statusBtn.value);
+                statusIdSelected=statusBtn.value;
             });
        
         btnDiv.appendChild(statusBtn);
@@ -61,7 +62,14 @@ export async function updateModal(item,orderNumber)
 
     const saveChangebtn=document.createElement('button');
     saveChangebtn.className='btn'; 
+    saveChangebtn.type='button';
     saveChangebtn.textContent='Guardar cambios';
+    saveChangebtn.addEventListener('click',(e)=>
+        {
+            e.preventDefault();
+            updateItemStatus(item.id,orderNumber,statusIdSelected);
+            location.reload();
+        });
 
     
     dishInfo.appendChild(dishName);

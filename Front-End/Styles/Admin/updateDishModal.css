@@ -27,6 +27,7 @@ body.ActiveModal
 .modalContent
 {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -37,11 +38,11 @@ body.ActiveModal
     border-radius: 0.5rem;
 
 }
-.closeBtn
+.modalContent .closeBtn
 {
-    position:absolute;
-    top: 10.2rem;
-    right: 36rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.3rem;    
 }
