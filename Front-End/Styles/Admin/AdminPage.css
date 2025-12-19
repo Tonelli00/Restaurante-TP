@@ -2,3 +2,105 @@
 {
     gap: 33rem;
 }
+.AdminIntroduction
+{
+    display: flex;
+    justify-content: center;
+    background-color: var(--menu-introductionColor);
+    height: 15rem;
+}
+.AdminIntroduction .TextContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.TextContainer p
+{
+    color:var(--thirdText-color);
+    font-family: var(--text-font);
+    font-size: 1.1rem;
+}
+.TextContainer h1
+{
+    font-size: 3rem;
+    font-family: var(--tittle-font);
+}
+.Orders
+{
+display: flex;
+flex-direction: column;
+padding: 2rem;
+gap: 2rem;
+}
+#OrderOptions
+{
+
+    width: 6.5rem;
+}
+.OrderCards
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    gap: 1rem;
+}
+.orderCard
+{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--links-color);
+    box-shadow: var(--shadow-card);
+    font-family: var(--text-font);
+}
+
+.orderCard .cartHeader
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.orderCard .cartBody
+{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px black;
+}
+
+.orderCard .cartBody .cartBodyInfo
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem;
+}
+.orderCard .cartBody .cartBodyInfo img
+{
+    justify-content: center;
+    align-items: center;
+    height: 1.9rem;
+}
+.orderCard .cartBody .cartBodyInfo img:hover
+{
+    cursor: pointer;
+}
+
+.orderCard .cartBody .cartBodyInfo p {
+
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+.orderCard .totalAndBtn
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5rem;
+}

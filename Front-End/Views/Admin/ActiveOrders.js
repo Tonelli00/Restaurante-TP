@@ -1,12 +1,11 @@
-import {GetAllOrders} from "./GetAllOrders.js";
 import { GetDishPriceById } from "../Dishes/GetDishes.js";
-
-async function createCards()
+import { updateModal } from "./updateModal.js";
+export function createActiveCards(orders)
 {
-    const orders = await GetAllOrders(); 
-    const cartSection = document.querySelector(".OrderCards");
-    
-    orders.forEach(order => {
+    const OrderCards = document.querySelector('.OrderCards');
+    OrderCards.innerHTML='';
+    orders.forEach(order=>
+    {
         if(order.status.id !=5)
         {
         const orderCard = document.createElement('div');
@@ -29,42 +28,41 @@ async function createCards()
        
 
        order.items.forEach(async item => {
-
+        
         const bodyInfo = document.createElement('div');
         bodyInfo.className="cartBodyInfo";
         const dishText =document.createElement('p');
-        dishText.textContent=`x${item.quantity} ${item.dish.name}`;        
-
-        const dishPrice = document.createElement('p');
-        const price = await GetDishPriceById(item.dish.id);
-        dishPrice.textContent="$"+price*item.quantity;
+        dishText.textContent=`x${item.quantity} ${item.dish.name}`;   
+        const anchor = document.createElement('a');     
+        const editImage = document.createElement('img');
+        editImage.src='Components/Images/editpnc.avif';
+        anchor.appendChild(editImage);
+        dishText.appendChild(anchor);
+        const dishStatus = document.createElement('p');
+        dishStatus.textContent=item.status.name;
 
         bodyInfo.appendChild(dishText);
-        bodyInfo.appendChild(dishPrice);
+        bodyInfo.appendChild(dishStatus);
 
         cartBody.appendChild(bodyInfo);
+
+
+        anchor.addEventListener('click',()=>
+            {   
+                updateModal(item,order.orderNumber);
+            });
         });
 
         const priceandaddButton = document.createElement('div');
         priceandaddButton.className='totalAndBtn';
         const totalPrice = document.createElement('p');
         totalPrice.textContent='Total:$'+order.totalAmount;
-        const addDishBtn = document.createElement('button');
-        addDishBtn.className = 'btn';
-        addDishBtn.textContent='+ Agregar Plato';
-        addDishBtn.addEventListener('click',()=>
-            {   
-                localStorage.setItem('OrderID',order.orderNumber);
-                location.href=`Menu.html?act=agg`;    
-            });
-
-        priceandaddButton.appendChild(totalPrice);
-        priceandaddButton.appendChild(addDishBtn);
-
-
-     
-
         
+        priceandaddButton.appendChild(totalPrice);
+        priceandaddButton.style.justifyContent='center';
+        priceandaddButton.style.marginLeft='0';
+        priceandaddButton.style.marginTop='1rem';  
+
         cartHeader.appendChild(orderTittle);
         cartHeader.appendChild(orderStatus);
         
@@ -74,12 +72,9 @@ async function createCards()
         orderCard.appendChild(cartBody);
         orderCard.appendChild(priceandaddButton);
 
-        cartSection.appendChild(orderCard);        
+        OrderCards.appendChild(orderCard);        
         }
-      
-        
     });
-
+    
 
 }
-createCards();

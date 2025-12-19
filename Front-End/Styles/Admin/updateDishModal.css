@@ -1,0 +1,94 @@
+
+body.ActiveModal
+{
+    overflow: hidden;
+}
+#updateModal
+{
+
+    position: fixed;
+    display: flex;
+    inset: 0;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;   
+}
+
+#updateModal.active
+{
+    display: flex;
+    opacity: 1;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.804);
+    pointer-events: auto;
+    
+}
+.modalContent
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25rem;
+    width: 25rem;
+    align-items: center;
+    background-color: var( --home-color);
+    border-radius: 0.5rem;
+
+}
+.closeBtn
+{
+    position:absolute;
+    top: 10.2rem;
+    right: 36rem;
+    border-radius: 0.5rem;
+    padding: 0.3rem;    
+}
+.tittleDiv
+{
+    display: flex;
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 0.5rem;
+    color: var(--text-highlighted);
+    align-items: start;
+}
+.dishInfo
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: start;
+    margin-top: 2rem;
+    gap: 1rem;
+    font-family: var(--text-font);
+}
+.dishInfo .dishStatus
+{
+    color: var(--thirdText-color);
+    font-size: 1rem;
+}
+.btnDiv
+{
+    display: flex;
+    gap: 1rem;
+}
+button
+{
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+}
+button:hover
+{
+    cursor: pointer;
+
+}
+
+.btn
+{
+    margin-top: 3rem;
+}

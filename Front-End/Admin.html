@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="Styles/Global/Footer.css">
     <link rel="stylesheet" href="Styles/Global/Vars.css">
     <link rel="stylesheet" href="Styles/Admin/AdminPage.css">
+    <link rel="stylesheet" href="Styles/Admin/updateDishModal.css">
+    <script type="module" src="Views/Admin/OrdersCards.js"></script>
+
 </head>
 <body>
       <nav class="Navbar">
@@ -19,6 +22,27 @@
         </ul>
         </div>
         </nav>
+
+        <section class="AdminIntroduction">
+          <div class="TextContainer">
+            <p style="color:var(--text-highlighted);">PANEL DE CONTROL</p>
+            <h1>Administrador</h1>
+            <p>Gestiona las órdenes activas del restaurante</p>
+          </div>
+        </section>
     
+
+        <section class="Orders">
+          <select name="OrderOption" id="OrderOptions">
+            <option value="generic" >Ordenes</option>
+          </select> 
+          <div class="OrderCards">aca van a ir las ordenes</div>
+        </section>
+
+        <div id="updateModal">
+          <button class="closeBtn">X</button>
+          <div class="modalContent">
+            
+          </div>
 </body>
 </html>
