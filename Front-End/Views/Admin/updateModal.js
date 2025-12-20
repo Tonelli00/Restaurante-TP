@@ -2,7 +2,8 @@ import { GetStatuses } from "../Status/GetAllStatuses.js";
 import { updateItemStatus } from "./UpdateItem.js";
 export async function updateModal(item,orderNumber)
 {
-
+    console.log(item);
+    console.log(orderNumber);
     const modalDiv = document.getElementById('updateModal');
     const contentDiv = document.querySelector('.modalContent');
     const closeBtn = document.querySelector('.closeBtn');
@@ -53,7 +54,8 @@ export async function updateModal(item,orderNumber)
         statusBtn.value=status.id;
         statusBtn.addEventListener('click',()=>
             {
-                statusIdSelected=statusBtn.value;
+                statusIdSelected=Number(statusBtn.value);
+                console.log(statusIdSelected);
             });
        
         btnDiv.appendChild(statusBtn);
@@ -64,11 +66,18 @@ export async function updateModal(item,orderNumber)
     saveChangebtn.className='btn'; 
     saveChangebtn.type='button';
     saveChangebtn.textContent='Guardar cambios';
-    saveChangebtn.addEventListener('click',(e)=>
+    saveChangebtn.addEventListener('click',async (e)=>
         {
             e.preventDefault();
-            updateItemStatus(item.id,orderNumber,statusIdSelected);
-            location.reload();
+            if(statusIdSelected==null)
+                {
+                    alert('selecciona un estado');
+                    return;
+                }
+            
+            const result = await updateItemStatus(item.id,orderNumber,statusIdSelected);
+            statusIdSelected=null;
+            console.log("LLego aca",result);
         });
 
     

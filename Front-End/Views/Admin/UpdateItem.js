@@ -1,36 +1,42 @@
 import { PatchData } from "../Global/ApiService.js";
-import { toast } from "../Global/GlobalToast.js";
+import  {toast} from "../Global/GlobalToast.js";
 
 export async function updateItemStatus(itemId,OrderId,StatusId)
-{
+{   const modalDiv = document.getElementById('updateModal');
     const Endpointurl=`api/v1/Order/${OrderId}/item/${itemId}`;
+    console.log(itemId);
+    console.log(OrderId);
+    console.log(StatusId);
 
     const newStatus=
     {
         status:StatusId
     };
+    console.log(newStatus);
+    const result = await PatchData(Endpointurl,newStatus);
+    
 
-    const response = await PatchData(Endpointurl,newStatus);
-
-    if(response.ok)
+    if(result.ok)
         {
-        toast("Se realizaron los cambios con éxito...","good");
-
+        modalDiv.classList.remove('active');
+        document.body.classList.remove('ActiveModal');  
+                 
         setTimeout(() => {
-            const updateModal=document.getElementById('updateModal');
-            updateModal.classList.remove('active');
-            document.body.classList.remove('ActiveModal');
-        }, 1800);
-        console.log('se ejecuto el toast');
+       
+            toast("Se realizaron los cambios con éxito...","good");
+        }, 1500);
         }
-        else{ 
-            toast("No se pudieron realizar los cambios, intente nuevamente...","bad");
+        
+        else
+        {
+            modalDiv.classList.remove('active');
+            document.body.classList.remove('ActiveModal');  
+                
             setTimeout(() => {
-                const updateModal=document.getElementById('updateModal');
-                updateModal.classList.remove('active');
-                document.body.classList.remove('ActiveModal');
-            }, 1800);
-      }
-
-
+            
+            toast("No se pudieron realizar lo cambios, intente nuevamente...","bad");
+            }, 1500);
+            return {ok:false}
+        }
+    
 }

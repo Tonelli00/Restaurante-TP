@@ -194,7 +194,7 @@ namespace Restaurant_API.Controllers
         [ProducesResponseType(typeof(ApiError), StatusCodes.Status404NotFound)]
         [SwaggerResponse(404, "Orden o item no encontrado", typeof(ApiError))]
         [SwaggerOperation(Summary = "Actualizar estado de item individual", Description = "Actualiza el estado de un item específico dentro de una orden.")]  
-        public async Task<ActionResult<OrderUpdateReponse>> UpdateOrderItemStatus(long id , long itemId, [Required]OrderItemUpdateRequest UpdateItemRequest) 
+        public async Task<ActionResult<OrderUpdateReponse>> UpdateOrderItemStatus(long id , long itemId, [FromBody]OrderItemUpdateRequest UpdateItemRequest) 
         {
             try
             {

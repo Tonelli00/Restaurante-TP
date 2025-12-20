@@ -2,15 +2,7 @@
 using Application.Interfaces;
 using Application.Models;
 using Domain.Entities;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using System.Xml;
+
 
 namespace Application.UseCase.Order
 {
@@ -190,16 +182,16 @@ namespace Application.UseCase.Order
                     string message = " La cantidad tiene que ser mayor a 0";
                     throw new invalid_quantity(message);
                 }
-                
+
                 var existItem = await _Query.getOrderItemInOrder(order.OrderId, item.id);
 
-                if (existItem != null && existItem.Status==1) //Veo si el plato existe y el estado, si esta en preparación agrego x cantidad. Si no agrego otro plato.
+                if (existItem != null) //Veo si el plato existe y el estado, si esta en preparación agrego x cantidad. Si no agrego otro plato.
                 {
-                    existItem.Quantity += item.quantity;
-                    
+                    existItem.Quantity += item.quantity;  
                 }
                 else 
-                {
+                {   var status = await _Query.GetStatusById(1);
+                   
                     var orderItem = new OrderItem
                     {
                         Order = order.OrderId,
@@ -207,7 +199,7 @@ namespace Application.UseCase.Order
                         Quantity = item.quantity,
                         Notes = item.notes,
                         Status = 1,
-                        StatusEntity = await _Query.GetStatusById(1),
+                        StatusEntity = new Domain.Entities.Status{Id = status.Id,Name = status.Name},
                         CreateDate = DateTime.Now,
                     };
                    order.OrderItems.Add(orderItem);

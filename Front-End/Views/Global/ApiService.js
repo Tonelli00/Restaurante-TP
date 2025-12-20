@@ -5,7 +5,7 @@ export async function getData(Endpointurl)
     try
     {
         const response = await fetch(`${base_URL}${Endpointurl}`);
-        const data = response.json();
+        const data = await response.json();
         return data;
 
     }
@@ -54,11 +54,13 @@ export async function PutData(Endpointurl,items)
         body: JSON.stringify(items)};
         
         const response = await fetch(`${base_URL}${Endpointurl}`,opcionesFetch);
+       
         return response;
     }
     catch(error)
     {
         console.error("No se pudo establecer una conexion con la api");
+       
     }
 }
 
@@ -74,8 +76,7 @@ export async function PatchData(Endpointurl,data)
         body: JSON.stringify(data)
     };
         
-        const response = await fetch(`${base_URL}${Endpointurl}`,opcionesFetch);
-        console.log(response);
+        let response = await fetch(`${base_URL}${Endpointurl}`,opcionesFetch);
         return response;
     }
     catch(error)

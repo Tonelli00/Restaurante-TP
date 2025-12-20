@@ -91,7 +91,7 @@ namespace Infraestructure.Querys
         }
         public async Task<bool> existOrderItemInOrder(long orderId, long ItemId) 
         {
-            return  await _context.OrderItems.AnyAsync(oi => oi.Order == orderId && oi.OrderItemId==ItemId );
+            return  await _context.OrderItems.AnyAsync(oi => oi.Order== orderId && oi.OrderItemId==ItemId && oi.Status==1 );
         
         }
         public async Task<OrderItem?> getOrderItemInOrder(long orderId,Guid DishId) 
