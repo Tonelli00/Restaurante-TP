@@ -185,7 +185,7 @@ namespace Application.UseCase.Order
 
                 var existItem = await _Query.getOrderItemInOrder(order.OrderId, item.id);
 
-                if (existItem != null) //Veo si el plato existe y el estado, si esta en preparación agrego x cantidad. Si no agrego otro plato.
+                if (existItem != null && existItem.Status==1) //Veo si el plato existe y el estado, si esta en preparación agrego x cantidad. Si no agrego otro plato.
                 {
                     existItem.Quantity += item.quantity;  
                 }
@@ -199,7 +199,7 @@ namespace Application.UseCase.Order
                         Quantity = item.quantity,
                         Notes = item.notes,
                         Status = 1,
-                        StatusEntity = new Domain.Entities.Status{Id = status.Id,Name = status.Name},
+                        StatusEntity = status,
                         CreateDate = DateTime.Now,
                     };
                    order.OrderItems.Add(orderItem);
@@ -231,56 +231,33 @@ namespace Application.UseCase.Order
                 string message = " Item no encontrado en la orden";
                 throw new item_not_found(message);
             }
+            var itemToUpdate = await _Query.getOrderItem(order_ToUpdate.OrderId, itemId); //problema con el front
+            
             if (UpdateItemRequest.status <= 0 || UpdateItemRequest.status > 5) 
             {
                 string message = " Estado invalido"; 
                 throw new invalid_status(message);
             }
-            foreach (var item in order_ToUpdate.OrderItems)
-            {
-                if (item.OrderItemId == itemId && UpdateItemRequest.status > item.Status)
-                {
-                    item.Status = UpdateItemRequest.status;
-                }
-                else 
-                {
-                    if (UpdateItemRequest.status < item.Status) 
-                    {
-                        string ActualStatus = await _Query.getstatusName(item.Status);
-                        string nameupdatestatus = await _Query.getstatusName(UpdateItemRequest.status);
-                        string message = " No se puede cambiar de " + "'" + ActualStatus + "'" + " a " + "'" + nameupdatestatus + "'";
-                        throw new invalid_transition(message);
 
-                    }
-
-                }
-
-            }
-
-            if(order_ToUpdate.OrderItems.All(i => i.Status == 5))
+            if (itemToUpdate.Status < UpdateItemRequest.status )
             {
-                order_ToUpdate.OverallStatus = 5;
+                itemToUpdate.Status = UpdateItemRequest.status;
             }
-            else if (order_ToUpdate.OrderItems.All(i => i.Status == 4))
+            else
             {
-                order_ToUpdate.OverallStatus = 4;
+                string ActualStatus = await _Query.getstatusName(itemToUpdate.Status);
+                string nameupdatestatus = await _Query.getstatusName(UpdateItemRequest.status);
+                string message = " No se puede cambiar de " + "'" + ActualStatus + "'" + " a " + "'" + nameupdatestatus + "'";
+                throw new invalid_transition(message);
             }
-            else if (order_ToUpdate.OrderItems.All(i => i.Status == 3))
-            {
-                order_ToUpdate.OverallStatus = 3;
-            }
-            else if (order_ToUpdate.OrderItems.All(i => i.Status == 2))
-            {
-                order_ToUpdate.OverallStatus = 2;
-            }
-            else if (order_ToUpdate.OrderItems.Any(i => i.Status == 1))
-            {
-                order_ToUpdate.OverallStatus = 1;
-            }
-
+            
             order_ToUpdate.UpdateDate = DateTime.Now;
 
+            
+
+            order_ToUpdate.OverallStatus = order_ToUpdate.OrderItems.Min(i => i.Status);
             var order =await _Command.UpdateOrderItemStatus(OrderId,order_ToUpdate);
+            
             return new OrderUpdateReponse 
             {
                 orderNumber = order.OrderId,

@@ -1,14 +1,20 @@
 import { GetStatuses } from "../Status/GetAllStatuses.js";
 import { updateItemStatus } from "./UpdateItem.js";
+import { StatusTranslate } from "../Status/StatusTranslater.js";
 export async function updateModal(item,orderNumber)
 {
     console.log(item);
     console.log(orderNumber);
     const modalDiv = document.getElementById('updateModal');
     const contentDiv = document.querySelector('.modalContent');
-    const closeBtn = document.querySelector('.closeBtn');
+    const headerModal  =document.querySelector('.modalHeader');
+    headerModal.innerHTML='';
 
+    const closeBtn = document.createElement('button');
+    closeBtn.className= "closeBtn";
+    closeBtn.textContent='X';
 
+    headerModal.appendChild(closeBtn);
 
     modalDiv.classList.add('active');
     document.body.classList.add('ActiveModal');
@@ -36,7 +42,7 @@ export async function updateModal(item,orderNumber)
     dishName.textContent=item.dish.name;
     const dishStatus = document.createElement('p');
     dishStatus.className='dishStatus';
-    dishStatus.textContent='Estado actual:'+item.status.name;
+    dishStatus.textContent='Estado actual:'+StatusTranslate(item.status.name);
 
     const statuses = await GetStatuses();
     const statusText = document.createElement('p');
@@ -50,13 +56,16 @@ export async function updateModal(item,orderNumber)
     statuses.forEach(status => 
     {
         const statusBtn=document.createElement('button');
-        statusBtn.textContent=status.name;
+        statusBtn.textContent=StatusTranslate(status.name);
         statusBtn.value=status.id;
-        statusBtn.addEventListener('click',()=>
+        statusBtn.addEventListener('click',(e)=>
             {
+                btnDiv.querySelectorAll('button').forEach(btn => btn.classList.remove('focus'));  
+                statusBtn.classList.add('focus');  
                 statusIdSelected=Number(statusBtn.value);
-                console.log(statusIdSelected);
             });
+      
+           
        
         btnDiv.appendChild(statusBtn);
         
@@ -76,6 +85,7 @@ export async function updateModal(item,orderNumber)
                 }
             
             const result = await updateItemStatus(item.id,orderNumber,statusIdSelected);
+                
             statusIdSelected=null;
             console.log("LLego aca",result);
         });
@@ -87,7 +97,9 @@ export async function updateModal(item,orderNumber)
     dishInfo.appendChild(btnDiv);   
     dishInfo.appendChild(saveChangebtn);
 
-    contentDiv.appendChild(tittleDiv);
+    headerModal.appendChild(tittleDiv);
+
+
     contentDiv.appendChild(dishInfo);
     contentDiv.appendChild(orderContent);
 

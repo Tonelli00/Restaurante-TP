@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="Styles/Menu/Toast.css">
     <script type="module" src="Views/Admin/OrdersCards.js"></script>
     <script type="module" src="Views/Admin/UpdateItem.js"></script>
+    <script type="module" src="Views/Admin/StaticsData.js"></script>
 
 </head>
 <body>
@@ -33,18 +34,21 @@
           </div>
         </section>
     
-
+        <section class="Statics">
+          <div class="TotalProfit"><span class="total"></span>Total recaudado </div>
+          <div class="TotalActiveOrders"><span class="Active"></span>Ordenes Activas </div>
+          <div class="TotalInactiveOrders"><span class="Inactive"></span>Ordenes Inactivas</div>
+        </section>
         <section class="Orders">
           <select name="OrderOption" id="OrderOptions">
             <option value="generic" >Ordenes</option>
           </select> 
-          <div class="OrderCards">aca van a ir las ordenes</div>
+          <div class="OrderCards"></div>
         </section>
 
         <div id="updateModal">
-          
+          <div class="modalHeader"></div>
           <div class="modalContent">
-          <button class="closeBtn">X</button>  
           </div>
         </div>
 

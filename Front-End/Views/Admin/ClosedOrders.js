@@ -1,4 +1,5 @@
-import { GetDishPriceById } from "../Dishes/GetDishes.js";
+
+import { StatusTranslate } from "../Status/StatusTranslater.js";
 export function createClosedCards(orders)
 {
       const cartSection = document.querySelector(".OrderCards");
@@ -17,7 +18,7 @@ export function createClosedCards(orders)
              orderTittle.style.fontSize='1.2rem';
              
              const orderStatus = document.createElement('p');
-             orderStatus.textContent=order.status.name;
+             orderStatus.textContent=StatusTranslate(order.status.name);
              orderStatus.style.fontSize='1.2rem';
        
              
@@ -34,7 +35,7 @@ export function createClosedCards(orders)
              dishText.textContent=`x${item.quantity} ${item.dish.name}`;        
      
             const dishStatus = document.createElement('p');
-            dishStatus.textContent=item.status.name;
+            dishStatus.textContent=StatusTranslate(item.status.name);
 
             bodyInfo.appendChild(dishText);
             bodyInfo.appendChild(dishStatus);

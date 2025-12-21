@@ -2,6 +2,28 @@ import { createActiveCards } from "./ActiveOrders.js";
 import {createClosedCards} from "./ClosedOrders.js"
 import {GetAllOrders} from "../Order/GetAllOrders.js";
 
+document.addEventListener("DOMContentLoaded", () => {
+    const OrderCards = document.querySelector('.OrderCards');
+     const NoOrderSelected = document.createElement('div');
+            NoOrderSelected.className = 'NoOrderSelected'; 
+            const img = document.createElement('img');
+            img.src='Components/Images/Filter.png';
+
+            const textContent = document.createElement('div');
+            textContent.className='NoOrderSelectedText';
+            const tittle = document.createElement('h1');
+            tittle.textContent='Selecciona un filtro';
+            const text = document.createElement('p');
+            text.textContent='Elige ver órdenes activas o cerradas para continuar';
+
+            textContent.append(tittle,text);
+            NoOrderSelected.append(img,textContent)
+
+
+            OrderCards.appendChild(NoOrderSelected);
+    
+});
+
 async function createCards()
 {
     const orders = await GetAllOrders(); 
@@ -29,7 +51,27 @@ async function createCards()
                         createClosedCards(orders);
                     }
                     
-                else{OrderCards.innerHTML='';}
+            else
+            {
+            OrderCards.innerHTML='';
+            const NoOrderSelected = document.createElement('div');
+            NoOrderSelected.className = 'NoOrderSelected'; 
+            const img = document.createElement('img');
+            img.src='Components/Images/Filter.png';
+
+            const textContent = document.createElement('div');
+            textContent.className='NoOrderSelectedText';
+            const tittle = document.createElement('h1');
+            tittle.textContent='Selecciona un filtro';
+            const text = document.createElement('p');
+            text.textContent='Elige ver órdenes activas o cerradas para continuar';
+
+            textContent.append(tittle,text);
+            NoOrderSelected.append(img,textContent)
+
+
+            OrderCards.appendChild(NoOrderSelected);
+            }
         });
 }
 createCards();

@@ -91,7 +91,7 @@ namespace Infraestructure.Querys
         }
         public async Task<bool> existOrderItemInOrder(long orderId, long ItemId) 
         {
-            return  await _context.OrderItems.AnyAsync(oi => oi.Order== orderId && oi.OrderItemId==ItemId && oi.Status==1 );
+            return  await _context.OrderItems.AnyAsync(oi => oi.Order== orderId && oi.OrderItemId==ItemId);
         
         }
         public async Task<OrderItem?> getOrderItemInOrder(long orderId,Guid DishId) 
@@ -99,6 +99,12 @@ namespace Infraestructure.Querys
             return await _context.OrderItems.Where(oi => oi.Order == orderId && oi.Dish == DishId).FirstOrDefaultAsync();
         
         }
+
+        public async Task<OrderItem?> getOrderItem(long orderID, long ItemId) // agregado x problema en el front
+        {
+            return await _context.OrderItems.Where(oi=>oi.Order==orderID && oi.OrderItemId==ItemId).FirstOrDefaultAsync();
+        }
+
         public async Task<string> getstatusName(int statusId) 
         {
             return await _context.Statuses.Where(s=>s.Id==statusId).Select(s=>s.Name).FirstAsync();

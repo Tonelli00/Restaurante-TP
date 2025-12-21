@@ -5,9 +5,9 @@ body.ActiveModal
 }
 #updateModal
 {
-
-    position: fixed;
     display: flex;
+    position: fixed;
+    flex-direction: column;
     inset: 0;
     opacity: 0;
     justify-content: center;
@@ -19,32 +19,44 @@ body.ActiveModal
 {
     display: flex;
     opacity: 1;
-    z-index: 9999;
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.804);
     pointer-events: auto;
     
 }
+
 .modalContent
 {
+   width: 25rem;
+   height: auto;
+   background-color: var(--home-color);
+   border-radius: 0 0 0.5rem 0.5rem;
+} 
+.modalHeader {
     display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 25rem;
-    width: 25rem;
-    align-items: center;
-    background-color: var( --home-color);
-    border-radius: 0.5rem;
-
+    flex-direction: row-reverse;
+    justify-content: flex-end;  
+    align-items: center;         
+    padding: 0.5rem 0.5rem;
+    height: auto;                
+    width: 25rem;  
+    background-color: var(--home-color);
+    border-radius: 0.5rem 0.5rem 0 0;
 }
-.modalContent .closeBtn
-{
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+
+.closeBtn {
+    position: static; 
+    padding: 0.3rem 0.5rem;
     border-radius: 0.5rem;
-    padding: 0.3rem;    
+    cursor: pointer;
+    border:none;
+}
+
+ .closeBtn:hover
+{
+    background-color: rgba(255, 0, 0, 0.714);
+    transition: 0.2s ease;
+
 }
 .tittleDiv
 {
@@ -76,7 +88,17 @@ body.ActiveModal
 .btnDiv
 {
     display: flex;
+    margin-top: 1rem;
     gap: 1rem;
+}
+.btnDiv button
+{
+    border: none;
+}
+.btnDiv button.focus
+{
+    color:white;
+    background-color:var(--principal-color);
 }
 button
 {
@@ -91,5 +113,11 @@ button:hover
 
 .btn
 {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
+.btn:hover
+{
+    background-color: #b34053;
+    transition: 0.25s ease;
+}
+

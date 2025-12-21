@@ -18,6 +18,7 @@ namespace Application.Interfaces
         Task<bool> ActiveDish(Guid dishId);
         Task<bool> existOrderItemInOrder(long orderId,long itemId);
         Task<OrderItem> getOrderItemInOrder(long orderId, Guid dishId);
+        Task<OrderItem?> getOrderItem(long orderID, long ItemId);
         Task<string> getstatusName(int statusId);
 
 

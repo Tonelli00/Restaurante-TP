@@ -1,5 +1,6 @@
 import { GetDishPriceById } from "../Dishes/GetDishes.js";
 import { updateModal } from "./updateModal.js";
+import { StatusTranslate } from "../Status/StatusTranslater.js";
 export function createActiveCards(orders)
 {
     const OrderCards = document.querySelector('.OrderCards');
@@ -18,7 +19,7 @@ export function createActiveCards(orders)
         orderTittle.style.fontSize='1.2rem';
         
         const orderStatus = document.createElement('p');
-        orderStatus.textContent=order.status.name;
+        orderStatus.textContent=StatusTranslate(order.status.name);
         orderStatus.style.fontSize='1.2rem';
   
         
@@ -35,11 +36,11 @@ export function createActiveCards(orders)
         dishText.textContent=`x${item.quantity} ${item.dish.name}`;   
         const anchor = document.createElement('a');     
         const editImage = document.createElement('img');
-        editImage.src='Components/Images/editpnc.avif';
+        editImage.src='Components/Images/editPnc.png';
         anchor.appendChild(editImage);
         dishText.appendChild(anchor);
         const dishStatus = document.createElement('p');
-        dishStatus.textContent=item.status.name;
+        dishStatus.textContent=StatusTranslate(item.status.name);
 
         bodyInfo.appendChild(dishText);
         bodyInfo.appendChild(dishStatus);

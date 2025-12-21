@@ -1,5 +1,6 @@
 import {GetAllOrders} from "./GetAllOrders.js";
 import { GetDishPriceById } from "../Dishes/GetDishes.js";
+import { StatusTranslate } from "../Status/StatusTranslater.js";
 
 async function createCards()
 {
@@ -19,7 +20,7 @@ async function createCards()
         orderTittle.style.fontSize='1.2rem';
         
         const orderStatus = document.createElement('p');
-        orderStatus.textContent=order.status.name;
+        orderStatus.textContent=StatusTranslate(order.status.name);
         orderStatus.style.fontSize='1.2rem';
   
         

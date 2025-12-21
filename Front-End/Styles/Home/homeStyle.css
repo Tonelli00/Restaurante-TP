@@ -1,4 +1,7 @@
-
+body
+{
+    background-color: rgb(249, 247, 245);
+}
 .introduction
 {
     display: flex;
@@ -18,8 +21,6 @@
     width: 100%;
     flex-direction: column;
     background-color:#3a312a99;
-
-   
 }
 .introduction .textContainer h1 
 {

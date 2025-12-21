@@ -14,17 +14,17 @@ export async function updateItemStatus(itemId,OrderId,StatusId)
     };
     console.log(newStatus);
     const result = await PatchData(Endpointurl,newStatus);
-    
+    console.log(result);
 
     if(result.ok)
         {
         modalDiv.classList.remove('active');
         document.body.classList.remove('ActiveModal');  
-                 
-        setTimeout(() => {
-       
-            toast("Se realizaron los cambios con éxito...","good");
-        }, 1500);
+        toast("Se realizaron los cambios con éxito...","good");
+        
+        setTimeout(() => {       
+        location.reload();
+             }, 1700);    
         }
         
         else
@@ -33,7 +33,6 @@ export async function updateItemStatus(itemId,OrderId,StatusId)
             document.body.classList.remove('ActiveModal');  
                 
             setTimeout(() => {
-            
             toast("No se pudieron realizar lo cambios, intente nuevamente...","bad");
             }, 1500);
             return {ok:false}
