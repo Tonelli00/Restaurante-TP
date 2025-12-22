@@ -17,7 +17,7 @@ export function createActiveCards(orders)
         orderTittle.textContent="Orden #"+order.orderNumber; 
         orderTittle.style.color='var(--text-highlighted)';
         orderTittle.style.fontSize='1.2rem';
-        
+              
         const orderStatus = document.createElement('p');
         orderStatus.textContent=StatusTranslate(order.status.name);
         orderStatus.style.fontSize='1.2rem';
@@ -55,17 +55,42 @@ export function createActiveCards(orders)
             });
         });
 
+
         const priceandaddButton = document.createElement('div');
         priceandaddButton.className='totalAndBtn';
         const totalPrice = document.createElement('p');
         totalPrice.textContent='Total:$'+order.totalAmount;
-        
-        priceandaddButton.appendChild(totalPrice);
-        priceandaddButton.style.justifyContent='center';
-        priceandaddButton.style.marginLeft='0';
-        priceandaddButton.style.marginTop='1rem';  
+        totalPrice.style.fontSize='1.2rem';
 
+        const deliveryOption = document.createElement('p');
+        deliveryOption.textContent="Entrega:"+order.deliveryType.name;
+        if(order.deliveryType.name == 'Delivery')
+        {
+            const DeliveryTo = document.createElement('p');
+            DeliveryTo.textContent = 'Dirección:'+ order.deliveryTo;
+            priceandaddButton.append(totalPrice,deliveryOption,DeliveryTo);
+            priceandaddButton.style.flexDirection='column';
+            priceandaddButton.style.justifyContent='center';
+            priceandaddButton.style.marginLeft='0';
+            priceandaddButton.style.marginTop='1.2rem';  
+            priceandaddButton.style.gap='0.5rem';  
+        
+        }
+        else
+            {
+            priceandaddButton.appendChild(totalPrice);
+            priceandaddButton.appendChild(deliveryOption);
+            priceandaddButton.style.flexDirection='column';
+            priceandaddButton.style.justifyContent='center';
+            priceandaddButton.style.marginLeft='0';
+            priceandaddButton.style.marginTop='1.2rem';  
+            priceandaddButton.style.gap='0.5rem';  
+            }
+        
+       
+        
         cartHeader.appendChild(orderTittle);
+    
         cartHeader.appendChild(orderStatus);
         
         

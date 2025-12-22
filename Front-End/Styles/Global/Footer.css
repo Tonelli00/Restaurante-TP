@@ -3,12 +3,61 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    padding: 3rem;
+    align-items: flex-start;
+    padding: 2rem;
     background-color: var(--footer-color);
     color:var(--secondText-color);
 }
 .Contact
 {
-    color: var( --text-highlighted);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var( --text-highlighted);   
 }
+.Contact a,.Location a,.Schedules a 
+{
+    display: flex;
+    color: var(--thirdText-color);
+    font-family: var(--text-font);
+    align-items: center;
+    gap: 0.5rem;
+}
+.Contact a:hover,.Location a:hover,.Schedules a:hover
+{
+    color:var(--text-highlighted);
+}
+.Contact img,.Location img,.Schedules img
+{
+    height: 1.5rem;
+}
+.Schedules
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Schedules p
+{
+    display: flex;
+    color: var(--thirdText-color);
+    font-family: var(--text-font);
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+.Location
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+}  
+.Location img
+{
+    height: 2.5rem;
+}  

@@ -12,10 +12,9 @@ export async function updateItemStatus(itemId,OrderId,StatusId)
     {
         status:StatusId
     };
-    console.log(newStatus);
+    
     const result = await PatchData(Endpointurl,newStatus);
-    console.log(result);
-
+    
     if(result.ok)
         {
         modalDiv.classList.remove('active');

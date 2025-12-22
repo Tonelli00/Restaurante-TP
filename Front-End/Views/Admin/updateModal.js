@@ -4,7 +4,6 @@ import { StatusTranslate } from "../Status/StatusTranslater.js";
 export async function updateModal(item,orderNumber)
 {
     console.log(item);
-    console.log(orderNumber);
     const modalDiv = document.getElementById('updateModal');
     const contentDiv = document.querySelector('.modalContent');
     const headerModal  =document.querySelector('.modalHeader');
@@ -43,6 +42,10 @@ export async function updateModal(item,orderNumber)
     const dishStatus = document.createElement('p');
     dishStatus.className='dishStatus';
     dishStatus.textContent='Estado actual:'+StatusTranslate(item.status.name);
+    
+    const DishNotes = document.createElement('p');
+    DishNotes.className='DishNotes';
+    DishNotes.textContent='Notas del plato:'+item.notes;
 
     const statuses = await GetStatuses();
     const statusText = document.createElement('p');
@@ -93,6 +96,7 @@ export async function updateModal(item,orderNumber)
     
     dishInfo.appendChild(dishName);
     dishInfo.appendChild(dishStatus);
+    dishInfo.appendChild(DishNotes);
     dishInfo.appendChild(statusText);
     dishInfo.appendChild(btnDiv);   
     dishInfo.appendChild(saveChangebtn);

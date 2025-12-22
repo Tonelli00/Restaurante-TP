@@ -49,11 +49,31 @@ export function createClosedCards(orders)
              const totalPrice = document.createElement('p');
              totalPrice.style.fontSize='1.2rem';
              totalPrice.textContent='Total:$'+order.totalAmount;
+
+             const deliveryOption = document.createElement('p');
+             deliveryOption.textContent="Entrega:"+order.deliveryType.name;
              
-             priceandaddButton.appendChild(totalPrice);
-             priceandaddButton.style.justifyContent='center';
-             priceandaddButton.style.marginLeft='0';
-             priceandaddButton.style.marginTop='1rem';  
+            if(order.deliveryType.name == 'Delivery')
+            {
+            const DeliveryTo = document.createElement('p');
+            DeliveryTo.textContent = 'Dirección:'+ order.deliveryTo;
+            priceandaddButton.append(totalPrice,deliveryOption,DeliveryTo);
+            priceandaddButton.style.flexDirection='column';
+            priceandaddButton.style.justifyContent='center';
+            priceandaddButton.style.marginLeft='0';
+            priceandaddButton.style.marginTop='1.2rem';  
+            priceandaddButton.style.gap='0.5rem';  
+            }
+            else
+            {
+                priceandaddButton.appendChild(totalPrice);
+                priceandaddButton.appendChild(deliveryOption);
+                priceandaddButton.style.flexDirection='column';
+                priceandaddButton.style.justifyContent='center';
+                priceandaddButton.style.marginLeft='0';
+                priceandaddButton.style.marginTop='1.2rem';  
+                priceandaddButton.style.gap='0.5rem';  
+            }
 
              cartHeader.appendChild(orderTittle);
              cartHeader.appendChild(orderStatus);

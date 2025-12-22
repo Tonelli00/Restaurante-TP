@@ -5,7 +5,7 @@ async function homecard() {
    
 
     const dishes = await getAllDishes();
-    const selectedDishes = dishes.slice(0,3);
+    const selectedDishes = dishes.slice(3,6);
 
 
     selectedDishes.forEach(dish => {

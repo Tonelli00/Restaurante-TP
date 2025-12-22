@@ -85,6 +85,11 @@ body.ActiveModal
     color: var(--thirdText-color);
     font-size: 1rem;
 }
+.dishInfo .DishNotes
+{
+    color: var(--thirdText-color);
+    font-size: 1rem;
+}
 .btnDiv
 {
     display: flex;
