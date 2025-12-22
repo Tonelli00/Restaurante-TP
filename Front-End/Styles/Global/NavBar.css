@@ -8,7 +8,7 @@
     padding: 1.3rem;
     background-color: var(--home-color);
     gap: 30rem;
-    z-index: 1;
+    z-index: 2;
 }
 .tittle
 {
