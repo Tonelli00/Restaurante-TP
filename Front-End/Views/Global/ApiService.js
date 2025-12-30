@@ -1,4 +1,4 @@
-const base_URL= "https://localhost:7105/";
+const base_URL= "http://localhost:5255/";
 
 export async function getData(Endpointurl)
 {
